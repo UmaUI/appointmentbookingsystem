@@ -1,22 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-           
-            </li>
-        </ul>
-        <button type="button" class="nav-link"><a [routerLink]="['/user/dashboard/editprofile']" >Edit Profile</a></button> &nbsp; 
-        <button type="button" class="nav-link"><a [routerLink]="['/user/dashboard/editpassword']" >Edit Password</a></button> &nbsp; 
-        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/bookappointment']" >Book Appointment</a></button>
-        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/pastappointment']" >Past Appointment</a></button>
-        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/upcomingappointment']" >Upcoming Appointment</a></button>
-        <button type="button" class="nav-link" ><a (click)="onLogoutClick()" href="#">Logout</a></button>
-        
-      
-      </div>
+<nav class="navbar navbar-expand-lg">
+  
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+   
+      <ul class="nav navbar-nav navbar-left ml-auto">
      
-    </nav>
+             
+          <a  [routerLink]="['/user/dashboard/editprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+          <a  [routerLink]="['/user/dashboard/editpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+          <a [routerLink]="['/user/dashboard/bookappointment']" > <button class="btn btn-primary" type="button"  >Book Appointment</button></a>&nbsp; 
+          <a  [routerLink]="['/user/dashboard/pastappointment']" > <button class="btn btn-primary" type="button"  >Past Appointment</button></a>&nbsp; 
+          <a  [routerLink]="['/user/dashboard/upcomingappointment']" > <button class="btn btn-primary" type="button"  >Upcoming Appointment</button></a>&nbsp; 
+          <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+   
+    </ul>
+    </div>
+   
+  </nav>
     <hr>
     <br>
     <br>
