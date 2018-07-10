@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+               
+            <a  [routerLink]="['/user/dashboard/editprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/user/dashboard/editpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a [routerLink]="['/user/dashboard/bookappointment']" > <button class="btn btn-primary" type="button"  >Book Appointment</button></a>&nbsp; 
+            <a  [routerLink]="['/user/dashboard/pastappointment']" > <button class="btn btn-primary" type="button"  >Past Appointment</button></a>&nbsp; 
+            <a  [routerLink]="['/user/dashboard/upcomingappointment']" > <button class="btn btn-primary" type="button"  >Upcoming Appointment</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+     
+      </ul>
+      </div>
+     
+    </nav>
+    <hr>
+    <br>
+    <br>
+    <div class="container ">
+        <div class="container" style="width: 37%" >
+      
+        <br><br>
+        <h3 align="center" class="font-weight-bold text-white">Doctor's Descriptions for you</h3>
+        
+          <br>
+          <table class="table table-dark" align="center" style="width:400px">
+            <thead>
+              <tr>  
+             <br>
+            
+              </tr>
+            </thead>
+            <tbody>
+                    
+                <tr *ngFor ="let description of descriptions | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <div *ngIf="this.id == description.userid  &&  this.doctorid == description.doctorid ">
+                    <h6>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Description:</b>&nbsp;{{description.doctordescription}}<br>
+                 <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.timeofdescription}}<br></h6>
+                 
+                 
+                 <p>-----------------------------------------------------------------------------------</p>
+               
+                 </div>
+                </tr>
+          
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </table> 
+        </div>
+        </div>
+  

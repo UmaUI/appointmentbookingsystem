@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+  <br>
+  <div class="container ">
+      <div class="container" style="width: 37%" >
+      <form  [formGroup]="userfeedbackForm"  (ngSubmit)= "onFeedbackSubmit(userfeedbackForm.value)">
+          <div class="form-group">
+              <textarea cols="30" rows="4" formControlName="userfeedback"  class="form-control" placeholder="Add feedback of customer..." [(ngModel)]="userfeedback"></textarea>
+       </div>
+       <div class="alert alert-danger" *ngIf="userfeedbackForm.controls.userfeedback.errors && (userfeedbackForm.controls.userfeedback.dirty || userfeedbackForm.controls.userfeedback.touched)">
+      <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.required">Feedback is required</div>
+      <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.minlength">Feedback must be atleast 5 charactors long</div>
+      <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.maxlength">Feedback cannot be more than 500 charactors long</div>
+      </div>
+      <flash-messages></flash-messages>
+      <input type="submit" class="btn btn-primary" value="Submit" [disabled]=!userfeedbackForm.valid>
+      </form>
+      <br><br>
+      <h3 align="center" >Customer's Feedbacks</h3>
+      
+        <br>
+        <table class="table" align="center" style="width:700px">
+          <thead>
+            <tr>  
+           <br>
+          
+            </tr>
+          </thead>
+          <tbody>
+                  
+              <tr *ngFor ="let feedback of feedbacks | paginate: { itemsPerPage: 10, currentPage: p }">
+                <div *ngIf="this.doctorid == feedback.doctorid  &&  this.userid == feedback.userid ">
+                  <h5>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Feedback:&nbsp;{{feedback.userfeedback}}<br>
+               <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;{{feedback.dateoffeedback.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Time:&nbsp;{{feedback.timeoffeedback}}<br></h5>
+               <p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerupdatefeedback/{{feedback._id}}"><input type="botton" value="Edit Feedback" class="btn btn-danger"></a></p>   
+               
+               
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------------------------------------------</p>
+             
+               </div>
+              </tr>
+        
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table> 
+      </div>
+      </div>
+

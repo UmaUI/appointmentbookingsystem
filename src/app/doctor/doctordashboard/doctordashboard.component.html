@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+               
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/enableonlineconsult']" > <button class="btn btn-primary" type="button"  >Consultation Time</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewappointments']" > <button class="btn btn-primary" type="button"  >View Appointments</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewcustomers']" > <button class="btn btn-primary" type="button"  >View Customers</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+     
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+

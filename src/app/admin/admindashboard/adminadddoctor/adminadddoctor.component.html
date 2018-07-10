@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+
+<hr>
+<br>
+
+<div class="container ">
+    <div class="container" style="width: 100%" >
+    <form [formGroup]="doctorForm"  (ngSubmit)= "onSignupSubmit(doctorForm.value)">
+      <h3 class="hint-text">Add Doctor!</h3>    
+      <div class="form-group">
+      <label>Name*</label>
+      <input type="text" style="width: 300px;" formControlName="name" class="form-control" placeholder="Add Name..." [(ngModel)]="name">
+      </div>
+    <div class="form-group">
+        <input type="hidden" formControlName="address1" class="form-control" placeholder="Add Address1..." [(ngModel)]="address1">
+      </div>
+      <div class="form-group">
+          <input type="hidden" formControlName="address2" class="form-control" placeholder="Add Address2..." [(ngModel)]="address2">
+        </div>
+    <div class="form-group">
+    <input type="hidden" formControlName="dateofbirth" class="form-control" placeholder="Add Date of Birth..." [(ngModel)]="dateofbirth">
+    </div>
+    <div class="form-group">
+        <select  style=" height:35px; width: 300px;" formControlName="gender" placeholder="Add Gender..." class="form-control" [(ngModel)]="gender" hidden>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number(format: xxx-xxx-xxxx)*:</label>
+          <input type="text" style="width: 300px;" formControlName="mobileno"  style="width: 300px;" class="form-control" placeholder="Add Mobile No..." [(ngModel)]="mobileno" required>
+        </div>
+        <div class="form-group">
+              <input type="hidden" formControlName="altermobileno"  style="width: 300px;" class="form-control" placeholder="Add Mobile No..." [(ngModel)]="altermobileno" required>
+            </div>
+            <div class="form-group">
+            <select  style="width: 300px;" placeholder="Add Country..." class="form-control" [(ngModel)]="country" hidden>
+                <option value="USA">USA</option>
+              </select>
+          </div>
+          <div class="form-group">
+          <select  style=" height:35px; width: 300px;" placeholder="Add State..." class="form-control" [(ngModel)]="state" hidden>
+              <option value="Illinois">Illinois</option>
+              <option value="New York">New York</option>
+              <option value="California">California</option>
+              <option value="Indiana">Indiana</option>
+            </select>
+        </div>
+    <div class="form-group">
+      <label>Username*</label>
+      <input type="text" formControlName="username" style="width: 300px;" class="form-control" placeholder="Add Username" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+      <label>Email*</label>
+      <input type="text" formControlName="email" style="width: 300px;" class="form-control" placeholder="Add Email" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+        <label>Speciality*</label>
+      <select  style=" height:35px; width: 300px;" formControlName="speciality" placeholder="Add Speciality..." class="form-control" [(ngModel)]="speciality">
+          <option value="Gastroenterology">Gastroenterology</option>
+          <option value="Dermatology">Dermatology</option>
+          <option value="Psychiatry">Psychiatry</option>
+          <option value="Obsterics and Gynaecology"> Obsterics and Gynaecology</option>
+          <option value="Cardiology">Cardiology</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label>Password*</label>
+      <input type="password" formControlName="password" style="width: 300px;" class="form-control" placeholder="Add Password"  [(ngModel)]="password">
+    </div>
+    <div class="alert alert-danger" *ngIf="doctorForm.controls.password.errors && (doctorForm.controls.password.dirty || doctorForm.controls.password.touched)">
+    <div [hidden]="!doctorForm.controls.password.errors.required">Password is required</div>
+    <div [hidden]="!doctorForm.controls.password.errors.minlength">Password must be atleast 5 charactors long</div>
+    <div [hidden]="!doctorForm.controls.password.errors.maxlength">Password cannot be more than 9 charactors long</div>
+    </div>
+    <div class="form-group">
+      <label>Confirm Password*</label>
+      <input type="password"   formControlName="confirmPassword"  class="form-control"  style="width: 300px;"  [(ngModel)]="confirmpassword">
+    </div>
+    <flash-messages></flash-messages>
+    <div>* - is required</div>
+    <div class="alert alert-danger" *ngIf="doctorForm.controls.confirmPassword.errors?.MatchPassword">Password not match</div> 
+    <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+    </div>
+    </div>

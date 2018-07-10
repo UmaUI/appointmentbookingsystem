@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+               
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/enableonlineconsult']" > <button class="btn btn-primary" type="button"  >Consultation Time</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewappointments']" > <button class="btn btn-primary" type="button"  >View Appointments</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewcustomers']" > <button class="btn btn-primary" type="button"  >View Customers</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+     
+      </ul>
+      </div>
+     
+    </nav>
+ <hr>
+  <br>
+  <br>
+  <div class="container ">
+      <div class="container" style="width: 37%" >
+      <form [formGroup]="doctordescriptionForm"  (ngSubmit)= "onDescriptionSubmit(doctordescriptionForm.value)">
+          <div class="form-group">
+              <textarea cols="30" rows="4" formControlName="doctordescription"  class="form-control" placeholder="Add description for customer..." [(ngModel)]="doctordescription"></textarea>
+       </div>
+       <div class="alert alert-danger" *ngIf="doctordescriptionForm.controls.doctordescription.errors && (doctordescriptionForm.controls.doctordescription.dirty || doctordescriptionForm.controls.doctordescription.touched)">
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.required">Description is required</div>
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.minlength">Description must be atleast 5 charactors long</div>
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.maxlength">Description cannot be more than 500 charactors long</div>
+      </div>
+      <flash-messages></flash-messages>
+      <input type="submit" class="btn btn-primary" value="Submit" [disabled]=!doctordescriptionForm.valid>
+      </form>
+      <br><br>
+      <h3>Past Descriptions</h3>
+      
+        <br>
+        <table class="table" align="center" style="width:700px">
+          <thead>
+            <tr>  
+
+            </tr>
+          </thead>
+          <tbody>
+                  
+              <tr *ngFor ="let description of descriptions | paginate: { itemsPerPage: 10, currentPage: p }">
+                <div *ngIf="this.id == description.doctorid  &&  this.userid == description.userid ">
+                  <h5>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Description:&nbsp;{{description.doctordescription}}<br>
+               <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;{{description.timeofdescription}}<br></h5>
+               
+               
+               <p>-----------------------------------------------------------------------------------</p>
+             
+               </div>
+              </tr>
+        
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table> 
+      </div>
+      </div>

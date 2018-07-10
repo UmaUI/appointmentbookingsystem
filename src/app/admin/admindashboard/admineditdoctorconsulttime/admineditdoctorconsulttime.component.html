@@ -1,0 +1,1151 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+<hr>
+<br>
+
+  <div class="container ">
+      <div class="container" style="width: 100%" >
+          <div *ngIf=" this.ctdoctors != 'undifined'">  
+             
+          <div *ngFor ="let ctdoctor of ctdoctors">
+              <div *ngIf=" this.id == ctdoctor._id ">
+      <form [formGroup]="consulttimeForm" (ngSubmit)= "onEditConsultSubmit(consulttimeForm.value)">
+        <h2 >Consultation Time</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Monday </th>
+              <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+                <th scope="col">Saturday</th>
+                <th scope="col">Sunday</th>
+              </tr>
+            </thead>
+            <tbody>
+                   
+            <tr>
+            <th> 
+                            
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0800am" [(ngModel)]="ctdoctor.mondayslots0800am"  (click)="checkValueMon0800am(mondayslots0800am)" />   
+            <label for="mondayslots0800am">
+            <span>8:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0830am" [(ngModel)]="ctdoctor.mondayslots0830am"  (click)="checkValueMon0830am(mondayslots0830am)" />   
+            <label for="mondayslots0830am">
+            <span>8:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0900am" [(ngModel)]="ctdoctor.mondayslots0900am"  (click)="checkValueMon0900am(mondayslots0900am)" />   
+            <label for="mondayslots0900am">
+            <span>9:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0930am" [(ngModel)]="ctdoctor.mondayslots0930am"  (click)="checkValueMon0930am(mondayslots0930am)" />   
+            <label for="mondayslots0930am">
+            <span>9:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1000am" [(ngModel)]="ctdoctor.mondayslots1000am"  (click)="checkValueMon1000am(mondayslots1000am)" />   
+            <label for="mondayslots01000am">
+            <span>10:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1030am" [(ngModel)]="ctdoctor.mondayslots1030am"  (click)="checkValueMon1030am(mondayslots1030am)" />   
+            <label for="mondayslots01030am">
+            <span>10:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1100am" [(ngModel)]="ctdoctor.mondayslots1100am"  (click)="checkValueMon1100am(mondayslots1100am)" />   
+            <label for="mondayslots01100am">
+            <span>11:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1130am" [(ngModel)]="ctdoctor.mondayslots1130am"  (click)="checkValueMon1130am(mondayslots1130am)" />   
+            <label for="mondayslots01130am">
+            <span>11:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1200pm" [(ngModel)]="ctdoctor.mondayslots1200pm"  (click)="checkValueMon1200pm(mondayslots1200pm)" />   
+            <label for="mondayslots01200pm">
+            <span>12:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots1230pm" [(ngModel)]="ctdoctor.mondayslots1230pm"  (click)="checkValueMon1230pm(mondayslots1230pm)" />   
+            <label for="mondayslots01230pm">
+            <span>12:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0100pm" [(ngModel)]="ctdoctor.mondayslots0100pm"  (click)="checkValueMon0100pm(mondayslots0100pm)" />   
+            <label for="mondayslots0100pm">
+            <span>1:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0130pm" [(ngModel)]="ctdoctor.mondayslots0130pm"  (click)="checkValueMon0130pm(mondayslots0130pm)" />   
+            <label for="mondayslots0130pm">
+            <span>1:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0200pm" [(ngModel)]="ctdoctor.mondayslots0200pm"  (click)="checkValueMon0200pm(mondayslots0200pm)" />   
+            <label for="mondayslots0200pm">
+            <span>2:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0230pm" [(ngModel)]="ctdoctor.mondayslots0230pm"  (click)="checkValueMon0230pm(mondayslots0230pm)" />   
+            <label for="mondayslots0230pm">
+            <span>2:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+             <div class="checkbox">
+             <input type="checkbox" formControlName="mondayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0300pm" [(ngModel)]="ctdoctor.mondayslots0300pm"  (click)="checkValueMon0300pm(mondayslots0300pm)" />   
+            <label for="mondayslots0300pm">
+            <span>3:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0330pm" [(ngModel)]="ctdoctor.mondayslots0330pm"  (click)="checkValueMon0330pm(mondayslots0330pm)" />   
+            <label for="mondayslots0330pm">
+            <span>3:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0400pm" [(ngModel)]="ctdoctor.mondayslots0400pm"  (click)="checkValueMon0400pm(mondayslots0400pm)" />   
+            <label for="mondayslots0400pm">
+            <span>4:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0430pm" [(ngModel)]="ctdoctor.mondayslots0430pm"  (click)="checkValueMon0430pm(mondayslots0430pm)" />   
+            <label for="mondayslots0430pm">
+            <span>4:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="mondayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.mondayslots0500pm" [(ngModel)]="ctdoctor.mondayslots0500pm"  (click)="checkValueMon0500pm(mondayslots0500pm)" />   
+            <label for="mondayslots0500pm">
+            <span>5:00 PM </span>
+            </label>
+            </div>
+            </div>
+            </th>
+           
+
+           
+                    <th> 
+                                      
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0800am" [(ngModel)]="ctdoctor.tuesdayslots0800am"  (click)="checkValueTues0800am(tuesdayslots0800am)" />   
+                    <label for="tuesdayslots0800am">
+                    <span>8:00 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0830am" [(ngModel)]="ctdoctor.tuesdayslots0830am"  (click)="checkValueTues0830am(tuesdayslots0830am)" />   
+                    <label for="tuesdayslots0830am">
+                    <span>8:30 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0900am" [(ngModel)]="ctdoctor.tuesdayslots0900am"  (click)="checkValueTues0900am(tuesdayslots0900am)" />   
+                    <label for="tuesdayslots0900am">
+                    <span>9:00 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0930am" [(ngModel)]="ctdoctor.tuesdayslots0930am"  (click)="checkValueTues0930am(tuesdayslots0930am)" />   
+                    <label for="tuesdayslots0930am">
+                    <span>9:30 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1000am" [(ngModel)]="ctdoctor.tuesdayslots1000am"  (click)="checkValueTues1000am(tuesdayslots1000am)" />   
+                    <label for="tuesdayslots01000am">
+                    <span>10:00 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1030am" [(ngModel)]="ctdoctor.tuesdayslots1030am"  (click)="checkValueTues1030am(tuesdayslots1030am)" />   
+                    <label for="tuesdayslots01030am">
+                    <span>10:30 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1100am" [(ngModel)]="ctdoctor.tuesdayslots1100am"  (click)="checkValueTues1100am(tuesdayslots1100am)" />   
+                    <label for="tuesdayslots01100am">
+                    <span>11:00 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1130am" [(ngModel)]="ctdoctor.tuesdayslots1130am"  (click)="checkValueTues1130am(tuesdayslots1130am)" />   
+                    <label for="tuesdayslots01130am">
+                    <span>11:30 AM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1200pm" [(ngModel)]="ctdoctor.tuesdayslots1200pm"  (click)="checkValueTues1200pm(tuesdayslots1200pm)" />   
+                    <label for="tuesdayslots01200pm">
+                    <span>12:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots1230pm" [(ngModel)]="ctdoctor.tuesdayslots1230pm"  (click)="checkValueTues1230pm(tuesdayslots1230pm)" />   
+                    <label for="tuesdayslots01230pm">
+                    <span>12:30 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0100pm" [(ngModel)]="ctdoctor.tuesdayslots0100pm"  (click)="checkValueTues0100pm(tuesdayslots0100pm)" />   
+                    <label for="tuesdayslots0100pm">
+                    <span>1:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0130pm" [(ngModel)]="ctdoctor.tuesdayslots0130pm"  (click)="checkValueTues0130pm(tuesdayslots0130pm)" />   
+                    <label for="tuesdayslots0130pm">
+                    <span>1:30 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0200pm" [(ngModel)]="ctdoctor.tuesdayslots0200pm"  (click)="checkValueTues0200pm(tuesdayslots0200pm)" />   
+                    <label for="tuesdayslots0200pm">
+                    <span>2:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0230pm" [(ngModel)]="ctdoctor.tuesdayslots0230pm"  (click)="checkValueTues0230pm(tuesdayslots0230pm)" />   
+                    <label for="tuesdayslots0230pm">
+                    <span>2:30 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                     <div class="checkbox">
+                     <input type="checkbox" formControlName="tuesdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0300pm" [(ngModel)]="ctdoctor.tuesdayslots0300pm"  (click)="checkValueTues0300pm(tuesdayslots0300pm)" />   
+                    <label for="tuesdayslots0300pm">
+                    <span>3:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0330pm" [(ngModel)]="ctdoctor.tuesdayslots0330pm"  (click)="checkValueTues0330pm(tuesdayslots0330pm)" />   
+                    <label for="tuesdayslots0330pm">
+                    <span>3:30 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0400pm" [(ngModel)]="ctdoctor.tuesdayslots0400pm"  (click)="checkValueTues0400pm(tuesdayslots0400pm)" />   
+                    <label for="tuesdayslots0400pm">
+                    <span>4:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0430pm" [(ngModel)]="ctdoctor.tuesdayslots0430pm"  (click)="checkValueTues0430pm(tuesdayslots0430pm)" />   
+                    <label for="tuesdayslots0430pm">
+                    <span>4:30 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="checkbox" formControlName="tuesdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.tuesdayslots0500pm" [(ngModel)]="ctdoctor.tuesdayslots0500pm"  (click)="checkValueTues0500pm(tuesdayslots0500pm)" />   
+                    <label for="tuesdayslots0500pm">
+                    <span>5:00 PM </span>
+                    </label>
+                    </div>
+                    </div>
+                    </th>
+
+                    <th> 
+                            
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0800am" [(ngModel)]="ctdoctor.wednesdayslots0800am"  (click)="checkValueWednes0800am(wednesdayslots0800am)" />   
+            <label for="wednesdayslots0800am">
+            <span>8:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0830am" [(ngModel)]="ctdoctor.wednesdayslots0830am"  (click)="checkValueWednes0830am(wednesdayslots0830am)" />   
+            <label for="wednesdayslots0830am">
+            <span>8:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0900am" [(ngModel)]="ctdoctor.wednesdayslots0900am"  (click)="checkValueWednes0900am(wednesdayslots0900am)" />   
+            <label for="wednesdayslots0900am">
+            <span>9:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0930am" [(ngModel)]="ctdoctor.wednesdayslots0930am"  (click)="checkValueWednes0930am(wednesdayslots0930am)" />   
+            <label for="wednesdayslots0930am">
+            <span>9:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1000am" [(ngModel)]="ctdoctor.wednesdayslots1000am"  (click)="checkValueWednes1000am(wednesdayslots1000am)" />   
+            <label for="wednesdayslots01000am">
+            <span>10:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1030am" [(ngModel)]="ctdoctor.wednesdayslots1030am"  (click)="checkValueWednes1030am(wednesdayslots1030am)" />   
+            <label for="wednesdayslots01030am">
+            <span>10:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1100am" [(ngModel)]="ctdoctor.wednesdayslots1100am"  (click)="checkValueWednes1100am(wednesdayslots1100am)" />   
+            <label for="wednesdayslots01100am">
+            <span>11:00 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1130am" [(ngModel)]="ctdoctor.wednesdayslots1130am"  (click)="checkValueWednes1130am(wednesdayslots1130am)" />   
+            <label for="wednesdayslots01130am">
+            <span>11:30 AM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1200pm" [(ngModel)]="ctdoctor.wednesdayslots1200pm"  (click)="checkValueWednes1200pm(wednesdayslots1200pm)" />   
+            <label for="wednesdayslots01200pm">
+            <span>12:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots1230pm" [(ngModel)]="ctdoctor.wednesdayslots1230pm"  (click)="checkValueWednes1230pm(wednesdayslots1230pm)" />   
+            <label for="wednesdayslots01230pm">
+            <span>12:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0100pm" [(ngModel)]="ctdoctor.wednesdayslots0100pm"  (click)="checkValueWednes0100pm(wednesdayslots0100pm)" />   
+            <label for="wednesdayslots0100pm">
+            <span>1:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0130pm" [(ngModel)]="ctdoctor.wednesdayslots0130pm"  (click)="checkValueWednes0130pm(wednesdayslots0130pm)" />   
+            <label for="wednesdayslots0130pm">
+            <span>1:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0200pm" [(ngModel)]="ctdoctor.wednesdayslots0200pm"  (click)="checkValueWednes0200pm(wednesdayslots0200pm)" />   
+            <label for="wednesdayslots0200pm">
+            <span>2:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0230pm" [(ngModel)]="ctdoctor.wednesdayslots0230pm"  (click)="checkValueWednes0230pm(wednesdayslots0230pm)" />   
+            <label for="wednesdayslots0230pm">
+            <span>2:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+             <div class="checkbox">
+             <input type="checkbox" formControlName="wednesdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0300pm" [(ngModel)]="ctdoctor.wednesdayslots0300pm"  (click)="checkValueWednes0300pm(wednesdayslots0300pm)" />   
+            <label for="wednesdayslots0300pm">
+            <span>3:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0330pm" [(ngModel)]="ctdoctor.wednesdayslots0330pm"  (click)="checkValueWednes0330pm(wednesdayslots0330pm)" />   
+            <label for="wednesdayslots0330pm">
+            <span>3:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0400pm" [(ngModel)]="ctdoctor.wednesdayslots0400pm"  (click)="checkValueWednes0400pm(wednesdayslots0400pm)" />   
+            <label for="wednesdayslots0400pm">
+            <span>4:00 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0430pm" [(ngModel)]="ctdoctor.wednesdayslots0430pm"  (click)="checkValueWednes0430pm(wednesdayslots0430pm)" />   
+            <label for="wednesdayslots0430pm">
+            <span>4:30 PM </span>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="checkbox" formControlName="wednesdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.wednesdayslots0500pm" [(ngModel)]="ctdoctor.wednesdayslots0500pm"  (click)="checkValueWednes0500pm(wednesdayslots0500pm)" />   
+            <label for="wednesdayslots0500pm">
+            <span>5:00 PM </span>
+            </label>
+            </div>
+            </div>
+            </th>
+
+                                    <th>
+                                            <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0800am" [(ngModel)]="ctdoctor.thursdayslots0800am"  (click)="checkValueThurs0800am(thursdayslots0800am)" />   
+                                                    <label for="thursdayslots0800am">
+                                                    <span>8:00 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0830am" [(ngModel)]="ctdoctor.thursdayslots0830am"  (click)="checkValueThurs0830am(thursdayslots0830am)" />   
+                                                    <label for="thursdayslots0830am">
+                                                    <span>8:30 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0900am" [(ngModel)]="ctdoctor.thursdayslots0900am"  (click)="checkValueThurs0900am(thursdayslots0900am)" />   
+                                                    <label for="thursdayslots0900am">
+                                                    <span>9:00 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0930am" [(ngModel)]="ctdoctor.thursdayslots0930am"  (click)="checkValueThurs0930am(thursdayslots0930am)" />   
+                                                    <label for="thursdayslots0930am">
+                                                    <span>9:30 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1000am" [(ngModel)]="ctdoctor.thursdayslots1000am"  (click)="checkValueThurs1000am(thursdayslots1000am)" />   
+                                                    <label for="thursdayslots01000am">
+                                                    <span>10:00 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1030am" [(ngModel)]="ctdoctor.thursdayslots1030am"  (click)="checkValueThurs1030am(thursdayslots1030am)" />   
+                                                    <label for="thursdayslots01030am">
+                                                    <span>10:30 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1100am" [(ngModel)]="ctdoctor.thursdayslots1100am"  (click)="checkValueThurs1100am(thursdayslots1100am)" />   
+                                                    <label for="thursdayslots01100am">
+                                                    <span>11:00 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1130am" [(ngModel)]="ctdoctor.thursdayslots1130am"  (click)="checkValueThurs1130am(thursdayslots1130am)" />   
+                                                    <label for="thursdayslots01130am">
+                                                    <span>11:30 AM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1200pm" [(ngModel)]="ctdoctor.thursdayslots1200pm"  (click)="checkValueThurs1200pm(thursdayslots1200pm)" />   
+                                                    <label for="thursdayslots01200pm">
+                                                    <span>12:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots1230pm" [(ngModel)]="ctdoctor.thursdayslots1230pm"  (click)="checkValueThurs1230pm(thursdayslots1230pm)" />   
+                                                    <label for="thursdayslots01230pm">
+                                                    <span>12:30 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0100pm" [(ngModel)]="ctdoctor.thursdayslots0100pm"  (click)="checkValueThurs0100pm(thursdayslots0100pm)" />   
+                                                    <label for="thursdayslots0100pm">
+                                                    <span>1:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0130pm" [(ngModel)]="ctdoctor.thursdayslots0130pm"  (click)="checkValueThurs0130pm(thursdayslots0130pm)" />   
+                                                    <label for="thursdayslots0130pm">
+                                                    <span>1:30 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0200pm" [(ngModel)]="ctdoctor.thursdayslots0200pm"  (click)="checkValueThurs0200pm(thursdayslots0200pm)" />   
+                                                    <label for="thursdayslots0200pm">
+                                                    <span>2:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0230pm" [(ngModel)]="ctdoctor.thursdayslots0230pm"  (click)="checkValueThurs0230pm(thursdayslots0230pm)" />   
+                                                    <label for="thursdayslots0230pm">
+                                                    <span>2:30 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                     <div class="checkbox">
+                                                     <input type="checkbox" formControlName="thursdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0300pm" [(ngModel)]="ctdoctor.thursdayslots0300pm"  (click)="checkValueThurs0300pm(thursdayslots0300pm)" />   
+                                                    <label for="thursdayslots0300pm">
+                                                    <span>3:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0330pm" [(ngModel)]="ctdoctor.thursdayslots0330pm"  (click)="checkValueThurs0330pm(thursdayslots0330pm)" />   
+                                                    <label for="thursdayslots0330pm">
+                                                    <span>3:30 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0400pm" [(ngModel)]="ctdoctor.thursdayslots0400pm"  (click)="checkValueThurs0400pm(thursdayslots0400pm)" />   
+                                                    <label for="thursdayslots0400pm">
+                                                    <span>4:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0430pm" [(ngModel)]="ctdoctor.thursdayslots0430pm"  (click)="checkValueThurs0430pm(thursdayslots0430pm)" />   
+                                                    <label for="thursdayslots0430pm">
+                                                    <span>4:30 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">   
+                                                    <div class="checkbox">
+                                                    <input type="checkbox" formControlName="thursdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.thursdayslots0500pm" [(ngModel)]="ctdoctor.thursdayslots0500pm"  (click)="checkValueThurs0500pm(thursdayslots0500pm)" />   
+                                                    <label for="thursdayslots0500pm">
+                                                    <span>5:00 PM </span>
+                                                    </label>
+                                                    </div>
+                                                    </div>
+                                                    </th>
+                                                   
+                                                  
+                                                    <th>
+                                                            <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0800am" [(ngModel)]="ctdoctor.fridayslots0800am"  (click)="checkValueFri0800am(fridayslots0800am)" />   
+                                                                    <label for="fridayslots0800am">
+                                                                    <span>8:00 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0830am" [(ngModel)]="ctdoctor.fridayslots0830am"  (click)="checkValueFri0830am(fridayslots0830am)" />   
+                                                                    <label for="fridayslots0830am">
+                                                                    <span>8:30 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0900am" [(ngModel)]="ctdoctor.fridayslots0900am"  (click)="checkValueFri0900am(fridayslots0900am)" />   
+                                                                    <label for="fridayslots0900am">
+                                                                    <span>9:00 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0930am" [(ngModel)]="ctdoctor.fridayslots0930am"  (click)="checkValueFri0930am(fridayslots0930am)" />   
+                                                                    <label for="fridayslots0930am">
+                                                                    <span>9:30 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1000am" [(ngModel)]="ctdoctor.fridayslots1000am"  (click)="checkValueFri1000am(fridayslots1000am)" />   
+                                                                    <label for="fridayslots01000am">
+                                                                    <span>10:00 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1030am" [(ngModel)]="ctdoctor.fridayslots1030am"  (click)="checkValueFri1030am(fridayslots1030am)" />   
+                                                                    <label for="fridayslots01030am">
+                                                                    <span>10:30 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1100am" [(ngModel)]="ctdoctor.fridayslots1100am"  (click)="checkValueFri1100am(fridayslots1100am)" />   
+                                                                    <label for="fridayslots01100am">
+                                                                    <span>11:00 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1130am" [(ngModel)]="ctdoctor.fridayslots1130am"  (click)="checkValueFri1130am(fridayslots1130am)" />   
+                                                                    <label for="fridayslots01130am">
+                                                                    <span>11:30 AM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1200pm" [(ngModel)]="ctdoctor.fridayslots1200pm"  (click)="checkValueFri1200pm(fridayslots1200pm)" />   
+                                                                    <label for="fridayslots01200pm">
+                                                                    <span>12:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots1230pm" [(ngModel)]="ctdoctor.fridayslots1230pm"  (click)="checkValueFri1230pm(fridayslots1230pm)" />   
+                                                                    <label for="fridayslots01230pm">
+                                                                    <span>12:30 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0100pm" [(ngModel)]="ctdoctor.fridayslots0100pm"  (click)="checkValueFri0100pm(fridayslots0100pm)" />   
+                                                                    <label for="fridayslots0100pm">
+                                                                    <span>1:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0130pm" [(ngModel)]="ctdoctor.fridayslots0130pm"  (click)="checkValueFri0130pm(fridayslots0130pm)" />   
+                                                                    <label for="fridayslots0130pm">
+                                                                    <span>1:30 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0200pm" [(ngModel)]="ctdoctor.fridayslots0200pm"  (click)="checkValueFri0200pm(fridayslots0200pm)" />   
+                                                                    <label for="fridayslots0200pm">
+                                                                    <span>2:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0230pm" [(ngModel)]="ctdoctor.fridayslots0230pm"  (click)="checkValueFri0230pm(fridayslots0230pm)" />   
+                                                                    <label for="fridayslots0230pm">
+                                                                    <span>2:30 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                     <div class="checkbox">
+                                                                     <input type="checkbox" formControlName="fridayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0300pm" [(ngModel)]="ctdoctor.fridayslots0300pm"  (click)="checkValueFri0300pm(fridayslots0300pm)" />   
+                                                                    <label for="fridayslots0300pm">
+                                                                    <span>3:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0330pm" [(ngModel)]="ctdoctor.fridayslots0330pm"  (click)="checkValueFri0330pm(fridayslots0330pm)" />   
+                                                                    <label for="fridayslots0330pm">
+                                                                    <span>3:30 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0400pm" [(ngModel)]="ctdoctor.fridayslots0400pm"  (click)="checkValueFri0400pm(fridayslots0400pm)" />   
+                                                                    <label for="fridayslots0400pm">
+                                                                    <span>4:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0430pm" [(ngModel)]="ctdoctor.fridayslots0430pm"  (click)="checkValueFri0430pm(fridayslots0430pm)" />   
+                                                                    <label for="fridayslots0430pm">
+                                                                    <span>4:30 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="form-group">   
+                                                                    <div class="checkbox">
+                                                                    <input type="checkbox" formControlName="fridayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.fridayslots0500pm" [(ngModel)]="ctdoctor.fridayslots0500pm"  (click)="checkValueFri0500pm(fridayslots0500pm)" />   
+                                                                    <label for="fridayslots0500pm">
+                                                                    <span>5:00 PM </span>
+                                                                    </label>
+                                                                    </div>
+                                                                    </div>
+                                                                    </th>                               
+                      
+                                                                    <th>
+                                                                            <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0800am" [(ngModel)]="ctdoctor.saturdayslots0800am"  (click)="checkValueSatur0800am(saturdayslots0800am)" />   
+                                                                                    <label for="saturdayslots0800am">
+                                                                                    <span>8:00 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0830am" [(ngModel)]="ctdoctor.saturdayslots0830am"  (click)="checkValueSatur0830am(saturdayslots0830am)" />   
+                                                                                    <label for="saturdayslots0830am">
+                                                                                    <span>8:30 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0900am" [(ngModel)]="ctdoctor.saturdayslots0900am"  (click)="checkValueSatur0900am(saturdayslots0900am)" />   
+                                                                                    <label for="saturdayslots0900am">
+                                                                                    <span>9:00 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0930am" [(ngModel)]="ctdoctor.saturdayslots0930am"  (click)="checkValueSatur0930am(saturdayslots0930am)" />   
+                                                                                    <label for="saturdayslots0930am">
+                                                                                    <span>9:30 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1000am" [(ngModel)]="ctdoctor.saturdayslots1000am"  (click)="checkValueSatur1000am(saturdayslots1000am)" />   
+                                                                                    <label for="saturdayslots01000am">
+                                                                                    <span>10:00 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1030am" [(ngModel)]="ctdoctor.saturdayslots1030am"  (click)="checkValueSatur1030am(saturdayslots1030am)" />   
+                                                                                    <label for="saturdayslots01030am">
+                                                                                    <span>10:30 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1100am" [(ngModel)]="ctdoctor.saturdayslots1100am"  (click)="checkValueSatur1100am(saturdayslots1100am)" />   
+                                                                                    <label for="saturdayslots01100am">
+                                                                                    <span>11:00 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1130am" [(ngModel)]="ctdoctor.saturdayslots1130am"  (click)="checkValueSatur1130am(saturdayslots1130am)" />   
+                                                                                    <label for="saturdayslots01130am">
+                                                                                    <span>11:30 AM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1200pm" [(ngModel)]="ctdoctor.saturdayslots1200pm"  (click)="checkValueSatur1200pm(saturdayslots1200pm)" />   
+                                                                                    <label for="saturdayslots01200pm">
+                                                                                    <span>12:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots1230pm" [(ngModel)]="ctdoctor.saturdayslots1230pm"  (click)="checkValueSatur1230pm(saturdayslots1230pm)" />   
+                                                                                    <label for="saturdayslots01230pm">
+                                                                                    <span>12:30 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0100pm" [(ngModel)]="ctdoctor.saturdayslots0100pm"  (click)="checkValueSatur0100pm(saturdayslots0100pm)" />   
+                                                                                    <label for="saturdayslots0100pm">
+                                                                                    <span>1:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0130pm" [(ngModel)]="ctdoctor.saturdayslots0130pm"  (click)="checkValueSatur0130pm(saturdayslots0130pm)" />   
+                                                                                    <label for="saturdayslots0130pm">
+                                                                                    <span>1:30 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0200pm" [(ngModel)]="ctdoctor.saturdayslots0200pm"  (click)="checkValueSatur0200pm(saturdayslots0200pm)" />   
+                                                                                    <label for="saturdayslots0200pm">
+                                                                                    <span>2:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0230pm" [(ngModel)]="ctdoctor.saturdayslots0230pm"  (click)="checkValueSatur0230pm(saturdayslots0230pm)" />   
+                                                                                    <label for="saturdayslots0230pm">
+                                                                                    <span>2:30 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                     <div class="checkbox">
+                                                                                     <input type="checkbox" formControlName="saturdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0300pm" [(ngModel)]="ctdoctor.saturdayslots0300pm"  (click)="checkValueSatur0300pm(saturdayslots0300pm)" />   
+                                                                                    <label for="saturdayslots0300pm">
+                                                                                    <span>3:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0330pm" [(ngModel)]="ctdoctor.saturdayslots0330pm"  (click)="checkValueSatur0330pm(saturdayslots0330pm)" />   
+                                                                                    <label for="saturdayslots0330pm">
+                                                                                    <span>3:30 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0400pm" [(ngModel)]="ctdoctor.saturdayslots0400pm"  (click)="checkValueSatur0400pm(saturdayslots0400pm)" />   
+                                                                                    <label for="saturdayslots0400pm">
+                                                                                    <span>4:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0430pm" [(ngModel)]="ctdoctor.saturdayslots0430pm"  (click)="checkValueSatur0430pm(saturdayslots0430pm)" />   
+                                                                                    <label for="saturdayslots0430pm">
+                                                                                    <span>4:30 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">   
+                                                                                    <div class="checkbox">
+                                                                                    <input type="checkbox" formControlName="saturdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.saturdayslots0500pm" [(ngModel)]="ctdoctor.saturdayslots0500pm"  (click)="checkValueSatur0500pm(saturdayslots0500pm)" />   
+                                                                                    <label for="saturdayslots0500pm">
+                                                                                    <span>5:00 PM </span>
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                    </th>
+                                                                                   
+                                                                                  
+                                                                                    <th>
+                                                                                            <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0800am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0800am" [(ngModel)]="ctdoctor.sundayslots0800am"  (click)="checkValueSun0800am(sundayslots0800am)" />   
+                                                                                                    <label for="sundayslots0800am">
+                                                                                                    <span>8:00 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0830am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0830am" [(ngModel)]="ctdoctor.sundayslots0830am"  (click)="checkValueSun0830am(sundayslots0830am)" />   
+                                                                                                    <label for="sundayslots0830am">
+                                                                                                    <span>8:30 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0900am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0900am" [(ngModel)]="ctdoctor.sundayslots0900am"  (click)="checkValueSun0900am(sundayslots0900am)" />   
+                                                                                                    <label for="sundayslots0900am">
+                                                                                                    <span>9:00 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0930am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0930am" [(ngModel)]="ctdoctor.sundayslots0930am"  (click)="checkValueSun0930am(sundayslots0930am)" />   
+                                                                                                    <label for="sundayslots0930am">
+                                                                                                    <span>9:30 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1000am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1000am" [(ngModel)]="ctdoctor.sundayslots1000am"  (click)="checkValueSun1000am(sundayslots1000am)" />   
+                                                                                                    <label for="sundayslots01000am">
+                                                                                                    <span>10:00 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1030am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1030am" [(ngModel)]="ctdoctor.sundayslots1030am"  (click)="checkValueSun1030am(sundayslots1030am)" />   
+                                                                                                    <label for="sundayslots01030am">
+                                                                                                    <span>10:30 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1100am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1100am" [(ngModel)]="ctdoctor.sundayslots1100am"  (click)="checkValueSun1100am(sundayslots1100am)" />   
+                                                                                                    <label for="sundayslots01100am">
+                                                                                                    <span>11:00 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1130am" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1130am" [(ngModel)]="ctdoctor.sundayslots1130am"  (click)="checkValueSun1130am(sundayslots1130am)" />   
+                                                                                                    <label for="sundayslots01130am">
+                                                                                                    <span>11:30 AM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1200pm" [(ngModel)]="ctdoctor.sundayslots1200pm"  (click)="checkValueSun1200pm(sundayslots1200pm)" />   
+                                                                                                    <label for="sundayslots01200pm">
+                                                                                                    <span>12:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots1230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots1230pm" [(ngModel)]="ctdoctor.sundayslots1230pm"  (click)="checkValueSun1230pm(sundayslots1230pm)" />   
+                                                                                                    <label for="sundayslots01230pm">
+                                                                                                    <span>12:30 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0100pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0100pm" [(ngModel)]="ctdoctor.sundayslots0100pm"  (click)="checkValueSun0100pm(sundayslots0100pm)" />   
+                                                                                                    <label for="sundayslots0100pm">
+                                                                                                    <span>1:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0130pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0130pm" [(ngModel)]="ctdoctor.sundayslots0130pm"  (click)="checkValueSun0130pm(sundayslots0130pm)" />   
+                                                                                                    <label for="sundayslots0130pm">
+                                                                                                    <span>1:30 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0200pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0200pm" [(ngModel)]="ctdoctor.sundayslots0200pm"  (click)="checkValueSun0200pm(sundayslots0200pm)" />   
+                                                                                                    <label for="sundayslots0200pm">
+                                                                                                    <span>2:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0230pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0230pm" [(ngModel)]="ctdoctor.sundayslots0230pm"  (click)="checkValueSun0230pm(sundayslots0230pm)" />   
+                                                                                                    <label for="sundayslots0230pm">
+                                                                                                    <span>2:30 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                     <div class="checkbox">
+                                                                                                     <input type="checkbox" formControlName="sundayslots0300pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0300pm" [(ngModel)]="ctdoctor.sundayslots0300pm"  (click)="checkValueSun0300pm(sundayslots0300pm)" />   
+                                                                                                    <label for="sundayslots0300pm">
+                                                                                                    <span>3:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0330pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0330pm" [(ngModel)]="ctdoctor.sundayslots0330pm"  (click)="checkValueSun0330pm(sundayslots0330pm)" />   
+                                                                                                    <label for="sundayslots0330pm">
+                                                                                                    <span>3:30 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0400pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0400pm" [(ngModel)]="ctdoctor.sundayslots0400pm"  (click)="checkValueSun0400pm(sundayslots0400pm)" />   
+                                                                                                    <label for="sundayslots0400pm">
+                                                                                                    <span>4:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0430pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0430pm" [(ngModel)]="ctdoctor.sundayslots0430pm"  (click)="checkValueSun0430pm(sundayslots0430pm)" />   
+                                                                                                    <label for="sundayslots0430pm">
+                                                                                                    <span>4:30 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group">   
+                                                                                                    <div class="checkbox">
+                                                                                                    <input type="checkbox" formControlName="sundayslots0500pm" class="checkbox style-2 pull-right"  [checked]="ctdoctor.sundayslots0500pm" [(ngModel)]="ctdoctor.sundayslots0500pm"  (click)="checkValueSun0500pm(sundayslots0500pm)" />   
+                                                                                                    <label for="sundayslots0500pm">
+                                                                                                    <span>5:00 PM </span>
+                                                                                                    </label>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    </th>
+               
+                                                                </tr> 
+           
+            </tbody>
+          </table> 
+      <flash-messages></flash-messages>
+      <input type="submit" class="btn btn-primary" value="Submit" [disabled]=!consulttimeForm.valid>
+      </form>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+

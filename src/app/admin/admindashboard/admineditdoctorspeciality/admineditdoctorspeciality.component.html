@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+  <div class="container">
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">  
+          <form   [formGroup]="doctorForm" (ngSubmit)= "onUpdateSubmit(doctorForm.value)">
+              <h2>Allocate Speciality</h2>          
+              <div class="form-group">
+                  <label>Enter Speciality*</label>
+                  <select  style=" height:35px; width: 300px;" formControlName="speciality" placeholder="Add Speciality..." class="form-control" [(ngModel)]="speciality">
+                      <option value="Gastroenterology">Gastroenterology</option>
+                      <option value="Dermatology">Dermatology</option>
+                      <option value="Psychiatry">Psychiatry</option>
+                      <option value="Obsterics and Gynaecology"> Obsterics and Gynaecology</option>
+                      <option value="Cardiology">Cardiology</option>
+                    </select>
+            </div>
+              <div class="alert alert-danger" *ngIf="doctorForm.controls.gender.errors && (doctorForm.controls.gender.dirty || doctorForm.controls.gender.touched)">
+              <div [hidden]="!doctorForm.controls.gender.errors.required">Gender is required</div>
+              </div>
+                <flash-messages></flash-messages>
+              <input type="submit" class="btn btn-primary" value="Update" [disabled]=!doctorForm.valid>
+              </form>
+        
+  
+  </div>
+  </div>

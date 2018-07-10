@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+    <br>
+    
+    <div class="container-fluid">
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage Doctor's Details</h3>
+        <br>
+       
+        <table class="thead-dark">
+          <tbody>
+                <tr *ngFor ="let doctor of doctors">
+                  <div *ngIf ="doctor._id == this.id">
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Profile Img:&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctorprofileimg/{{doctor._id}}"> <input type="botton" value="Edit Profile Image" class="btn btn-danger"></a></td>
+               <br>
+               <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Name:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctorname/{{doctor._id}}"> <input type="botton" value="Edit Name" class="btn btn-danger"></a></td>
+             
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Email:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.email}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctoremail/{{doctor._id}}"> <input type="botton" value="Edit Email" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Speciality:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.speciality}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctorspeciality/{{doctor._id}}"> <input type="botton" value="Edit Speciality" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.mobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctormobileno/{{doctor._id}}"> <input type="botton" value="Edit Mobile Number" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Username:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.username}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctorusername/{{doctor._id}}"> <input type="botton" value="Edit Username" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Alternate mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.altermobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctoraltermobileno/{{doctor._id}}"> <input type="botton" value="Edit Alter. Mobile Number" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Date of birth:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.dateofbirth}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctordateofbirth/{{doctor._id}}"> <input type="botton" value="Edit Date of birth" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Gender:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.gender}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctorgender/{{doctor._id}}"> <input type="botton" value="Edit Gender" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Address:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.address1}},{{doctor.address2}},{{doctor.state}},{{doctor.country}}<a href="http://localhost:3000/admin/admindashboard/admineditdoctoraddress/{{doctor._id}}"> <input type="botton" value="Edit Address" class="btn btn-danger"></a></td>
+             <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Active:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.active}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditdoctoractive/{{doctor._id}}"> <input type="botton" value="Edit Active Status" class="btn btn-danger"></a></td>
+             <br>
+      
+             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+             <td><a href="http://localhost:3000/admin/admindashboard/admineditdoctorconsulttimeenable/{{doctor._id}}"> <input type="botton" value="Edit Consultation Time Details" style="width: 250px" class="btn btn-info"></a></td>
+             <br>
+             
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><a href="http://localhost:3000/admin/admindashboard/admindoctorpastappointmentsdetails/{{doctor._id}}"> <input type="botton" value="Past Appointments Details" style="width: 250px" class="btn btn-info"></a></td>
+            <br>
+            
+                   <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   <td><a href="http://localhost:3000/admin/admindashboard/adminupcomingappointmentsdetails/{{doctor._id}}"> <input type="botton" value="Upcoming Appointments Details" style="width: 250px" class="btn btn-info"></a></td>
+            <br>
+            
+             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+             <td><input type="botton" (click) = "deleteDoctorForm(doctor._id)" value="Delete" class="btn btn-danger"></td>
+                  </div>
+            </tr>
+           
+            
+          </tbody>
+        </table> 
+      
+    </div>

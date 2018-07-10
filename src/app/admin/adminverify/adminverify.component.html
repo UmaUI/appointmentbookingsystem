@@ -1,0 +1,14 @@
+<div class="container ">
+  <br>
+<div class="container" style="width: 37%" >
+<form #adminForm="ngForm" (ngSubmit)= "onVerify(adminForm.value)">
+
+<div class="form-group">
+
+  <input type="text" name="secretToken" class="form-control" placeholder="Secret Token" [(ngModel)]="secretToken" required autofocus>
+</div>
+<flash-messages></flash-messages>
+<input type="submit" class="btn btn-primary btn-block" value="Verify your email">
+</form>
+</div>
+</div>

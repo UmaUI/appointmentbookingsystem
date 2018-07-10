@@ -1,0 +1,70 @@
+
+
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+  <br>
+  <div class="container ">
+      <div class="container" style="width: 37%" >
+      <form [formGroup]="doctordescriptionForm"  (ngSubmit)= "onDescriptionSubmit(doctordescriptionForm.value)">
+          <div class="form-group">
+              <textarea cols="30" rows="4" formControlName="doctordescription"  class="form-control" placeholder="Add description for customer..." [(ngModel)]="doctordescription"></textarea>
+       </div>
+       <div class="alert alert-danger" *ngIf="doctordescriptionForm.controls.doctordescription.errors && (doctordescriptionForm.controls.doctordescription.dirty || doctordescriptionForm.controls.doctordescription.touched)">
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.required">Description is required</div>
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.minlength">Description must be atleast 5 charactors long</div>
+      <div [hidden]="!doctordescriptionForm.controls.doctordescription.errors.maxlength">Description cannot be more than 500 charactors long</div>
+      </div>
+      <flash-messages></flash-messages>
+      <input type="submit" class="btn btn-primary" value="Submit" [disabled]=!doctordescriptionForm.valid>
+      </form>
+      <br><br>
+      <h3 align="center">Doctor's Descriptions</h3>
+      
+        <br>
+        <table class="table" align="center" style="width:700px">
+          <thead>
+            <tr>  
+           <br>
+          
+            </tr>
+          </thead>
+          <tbody>
+                  
+              <tr *ngFor ="let description of descriptions | paginate: { itemsPerPage: 10, currentPage: p }">
+                <div *ngIf="this.doctorid == description.doctorid  &&  this.userid == description.userid ">
+                  <h5>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Description:&nbsp;{{description.doctordescription}}<br>
+               <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;{{description.timeofdescription}}<br></h5>
+               <p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerupdatedoctordescription/{{description._id}}"><input type="botton" value="Edit Description" class="btn btn-danger"></a></p>   
+               
+               
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------------------------------------------</p>
+             
+               </div>
+              </tr>
+        
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table> 
+      </div>
+      </div>
+
+

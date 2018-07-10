@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+           
+            </li>
+        </ul>
+        <button type="button" class="nav-link"><a [routerLink]="['/user/dashboard/editprofile']" >Edit Profile</a></button> &nbsp; 
+        <button type="button" class="nav-link"><a [routerLink]="['/user/dashboard/editpassword']" >Edit Password</a></button> &nbsp; 
+        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/bookappointment']" >Book Appointment</a></button>
+        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/pastappointment']" >Past Appointment</a></button>
+        <button type="button" class="nav-link" ><a [routerLink]="['/user/dashboard/upcomingappointment']" >Upcoming Appointment</a></button>
+        <button type="button" class="nav-link" ><a (click)="onLogoutClick()" href="#">Logout</a></button>
+        
+      
+      </div>
+     
+    </nav>
+    <hr>
+    <br>
+    <br>
+    <div class="container ">
+        <div class="container" style="width: 37%" >
+        <form   [formGroup]="userfeedbackForm"  (ngSubmit)= "onFeedbackSubmit(userfeedbackForm.value)">
+            <div class="form-group">
+                <textarea cols="30" rows="4" formControlName="userfeedback"  class="form-control" placeholder="Add Feedback of doctor..." [(ngModel)]="userfeedback"></textarea>
+         </div>
+         <div class="alert alert-danger" *ngIf="userfeedbackForm.controls.userfeedback.errors && (userfeedbackForm.controls.userfeedback.dirty || userfeedbackForm.controls.userfeedback.touched)">
+        <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.required">Feedback is required</div>
+        <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.minlength">Feedback must be atleast 5 charactors long</div>
+        <div [hidden]="!userfeedbackForm.controls.userfeedback.errors.maxlength">Feedback cannot be more than 500 charactors long</div>
+        </div>
+        <div class="form-group">
+        <h5>Rate Doctor:</h5>&nbsp; &nbsp;&nbsp; <ngb-rating formControlName="currentRate" [(rate)]="currentRate"></ngb-rating>
+        </div>
+        <flash-messages></flash-messages>
+        <input type="submit" class="btn btn-primany" value="Submit" [disabled]=!userfeedbackForm.valid>
+        </form>
+        <br><br>
+        <h3 align="center" class="font-weight-bold text-white">Past Feedbacks</h3>
+        <br>
+     
+        <tr><h5 class="font-weight-bold text-white"><ngb-rating  [rate]="this.finalrate"></ngb-rating>({{ this.totalcuttentratecount }}&nbsp;Customers)&nbsp;{{this.finalrate}}&nbsp;out&nbsp;of&nbsp;10</h5></tr>
+        <br>
+          <br>
+          <table class="table table-dark" align="center" style="width:400px">
+            <thead>
+              <tr>  
+             <br>
+            
+              </tr>
+            </thead>
+            <tbody>
+                    
+                <tr *ngFor ="let feedback of feedbacks | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <div *ngIf="this.id == feedback.userid  &&  this.doctorid == feedback.doctorid ">
+                    <h6>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Feedback:</b>&nbsp;{{feedback.userfeedback}}<br>
+                      <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Rating:</b>&nbsp;<ngb-rating [rate]="feedback.currentRate"></ngb-rating><br>
+                 <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{feedback.dateoffeedback.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{feedback.timeoffeedback}}<br></h6>
+                 
+                 
+                 <p>-----------------------------------------------------------------------------------</p>
+               
+                 </div>
+                </tr>
+          
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </table> 
+        </div>
+        </div>
+  

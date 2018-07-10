@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+<hr>
+<br>
+  <br>
+  
+  <div class="container-fluid">
+      <h3 class="hint-text">Allocate PID to customers!</h3>
+      
+      <br>
+   <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mo. Number</th>
+        <th scope="col">PID</th>
+        <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+        <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr *ngFor ="let customer of customers">
+        <td>{{customer.name}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.mobileno}}</td>
+        <td>{{customer.pid}}</td>
+       <td><a href="http://localhost:3000/admin/admindashboard/admineditcustomerpid/{{customer._id}}"> <input type="botton" value="Edit" class="btn btn-danger"></a></td>
+       <td><input type="botton" (click) = "deleteCustomerForm(customer._id)" value="Delete" class="btn btn-danger"></td>
+       
+      </tr>
+     
+      
+    </tbody>
+  </table>  
+  </div>
+  
+  
+  
+  

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+    <br>
+    
+    <div class="container-fluid">
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage Feedback Details</h3>
+        <br>
+       
+        <table class="thead-dark">
+          <tbody>
+                <tr *ngFor ="let feedback of feedbacks">
+                  <div *ngIf ="feedback._id == this.id">
+               
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == feedback.doctorid">Doctor Name:&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.name}}</div></div></td>
+              <br>
+              
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Feedback Date:&nbsp;&nbsp;&nbsp;&nbsp;{{feedback.dateoffeedback.slice(0,10)}}</td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Feedback Time:&nbsp;&nbsp;&nbsp;&nbsp;{{feedback.timeoffeedback}}</td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Customer Feedback:&nbsp;&nbsp;&nbsp;&nbsp;{{feedback.userfeedback}}&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerupdatefeedbackrating/{{feedback._id}}"><input type="botton" value="Edit Customer Rating" class="btn btn-danger"></a></td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>Rating:&nbsp;&nbsp;&nbsp;&nbsp;<ngb-rating [rate]="feedback.currentRate"></ngb-rating>&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerupdatefeedback/{{feedback._id}}"><input type="botton" value="Edit Customer Feedback" class="btn btn-danger"></a></td>
+              <br>
+           
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><div *ngFor ="let customer of customers"><div *ngIf="customer._id == feedback.userid">Customer Name:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.name}}</div></div></td>
+              <br>
+              <br>
+                  </div>
+            </tr>
+           
+            
+          </tbody>
+        </table> 
+      
+    </div>

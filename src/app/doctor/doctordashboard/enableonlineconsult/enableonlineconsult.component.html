@@ -1,0 +1,721 @@
+<nav class="navbar navbar-expand-lg">
+        
+          <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+         
+            <ul class="nav navbar-nav navbar-left ml-auto">
+           
+                   
+                <a  [routerLink]="['/doctor/doctordashboard/doctoreditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+                <a  [routerLink]="['/doctor/doctordashboard/doctoreditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+                <a  [routerLink]="['/doctor/doctordashboard/enableonlineconsult']" > <button class="btn btn-primary" type="button"  >Consultation Time</button></a>&nbsp; 
+                <a  [routerLink]="['/doctor/doctordashboard/doctorviewappointments']" > <button class="btn btn-primary" type="button"  >View Appointments</button></a>&nbsp; 
+                <a  [routerLink]="['/doctor/doctordashboard/doctorviewcustomers']" > <button class="btn btn-primary" type="button"  >View Customers</button></a>&nbsp; 
+                <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+         
+          </ul>
+          </div>
+         
+        </nav>
+  <hr>
+  <br>
+
+  <div class="container ">
+      <div class="container" style="width: 100%" >
+      <form [formGroup]="consulttimeForm" (ngSubmit)= "onSignupConsultSubmit(consulttimeForm.value)">
+        <h5>&nbsp; &nbsp;Dear Dr.{{doctor.name}}, please click the button given below to enable your online consultation service.</h5>
+        <table>
+            <tbody>
+            <tr>
+            <th> 
+            <flash-messages></flash-messages>
+            <input type="submit" class="btn btn-primary" value="Yes, I want to enable my online consultation service" [disabled]=!consulttimeForm.valid>
+            <div class="form-group">
+            <input type="hidden" formControlName="_id" class="form-control"  style="width: 300px;" [(ngModel)]="doctor._id">
+            </div>                   
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0800am" class="checkbox style-2 pull-right"  [checked]="mondayslots0800am" [(ngModel)]="mondayslots0800am"  />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0830am" class="checkbox style-2 pull-right"  [checked]="mondayslots0830am" [(ngModel)]="mondayslots0830am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0900am" class="checkbox style-2 pull-right"  [checked]="mondayslots0900am" [(ngModel)]="mondayslots0900am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0930am" class="checkbox style-2 pull-right"  [checked]="mondayslots0930am" [(ngModel)]="mondayslots0930am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1000am" class="checkbox style-2 pull-right"  [checked]="mondayslots1000am" [(ngModel)]="mondayslots1000am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1030am" class="checkbox style-2 pull-right"  [checked]="mondayslots1030am" [(ngModel)]="mondayslots1030am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1100am" class="checkbox style-2 pull-right"  [checked]="mondayslots1100am" [(ngModel)]="mondayslots1100am"  />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1130am" class="checkbox style-2 pull-right"  [checked]="mondayslots1130am" [(ngModel)]="mondayslots1130am" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1200pm" class="checkbox style-2 pull-right"  [checked]="mondayslots1200pm" [(ngModel)]="mondayslots1200pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots1230pm" class="checkbox style-2 pull-right"  [checked]="mondayslots1230pm" [(ngModel)]="mondayslots1230pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0100pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0100pm" [(ngModel)]="mondayslots0100pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0130pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0130pm" [(ngModel)]="mondayslots0130pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0200pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0200pm" [(ngModel)]="mondayslots0200pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0230pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0230pm" [(ngModel)]="mondayslots0230pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0300pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0300pm" [(ngModel)]="mondayslots0300pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0330pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0330pm" [(ngModel)]="mondayslots0330pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0400pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0400pm" [(ngModel)]="mondayslots0400pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0430pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0430pm" [(ngModel)]="mondayslots0430pm" />   
+            </div>
+            </div>
+            <div class="form-group">   
+            <div class="checkbox">
+            <input type="hidden" formControlName="mondayslots0500pm" class="checkbox style-2 pull-right"  [checked]="mondayslots0500pm" [(ngModel)]="mondayslots0500pm" />   
+            </div>
+            </div>
+
+            <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0800am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0800am" [(ngModel)]="tuesdayslots0800am"  />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0830am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0830am" [(ngModel)]="tuesdayslots0830am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0900am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0900am" [(ngModel)]="tuesdayslots0900am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0930am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0930am" [(ngModel)]="tuesdayslots0930am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1000am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1000am" [(ngModel)]="tuesdayslots1000am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1030am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1030am" [(ngModel)]="tuesdayslots1030am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1100am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1100am" [(ngModel)]="tuesdayslots1100am"  />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1130am" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1130am" [(ngModel)]="tuesdayslots1130am" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1200pm" [(ngModel)]="tuesdayslots1200pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots1230pm" [(ngModel)]="tuesdayslots1230pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0100pm" [(ngModel)]="tuesdayslots0100pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0130pm" [(ngModel)]="tuesdayslots0130pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0200pm" [(ngModel)]="tuesdayslots0200pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0230pm" [(ngModel)]="tuesdayslots0230pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0300pm" [(ngModel)]="tuesdayslots0300pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0330pm" [(ngModel)]="tuesdayslots0330pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0400pm" [(ngModel)]="tuesdayslots0400pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0430pm" [(ngModel)]="tuesdayslots0430pm" />   
+                </div>
+                </div>
+                <div class="form-group">   
+                <div class="checkbox">
+                <input type="hidden" formControlName="tuesdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="tuesdayslots0500pm" [(ngModel)]="tuesdayslots0500pm" />   
+                </div>
+                </div>
+
+                <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0800am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0800am" [(ngModel)]="wednesdayslots0800am"  />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0830am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0830am" [(ngModel)]="wednesdayslots0830am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0900am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0900am" [(ngModel)]="wednesdayslots0900am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0930am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0930am" [(ngModel)]="wednesdayslots0930am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1000am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1000am" [(ngModel)]="wednesdayslots1000am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1030am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1030am" [(ngModel)]="wednesdayslots1030am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1100am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1100am" [(ngModel)]="wednesdayslots1100am"  />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1130am" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1130am" [(ngModel)]="wednesdayslots1130am" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1200pm" [(ngModel)]="wednesdayslots1200pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots1230pm" [(ngModel)]="wednesdayslots1230pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0100pm" [(ngModel)]="wednesdayslots0100pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0130pm" [(ngModel)]="wednesdayslots0130pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0200pm" [(ngModel)]="wednesdayslots0200pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0230pm" [(ngModel)]="wednesdayslots0230pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0300pm" [(ngModel)]="wednesdayslots0300pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0330pm" [(ngModel)]="wednesdayslots0330pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0400pm" [(ngModel)]="wednesdayslots0400pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0430pm" [(ngModel)]="wednesdayslots0430pm" />   
+                    </div>
+                    </div>
+                    <div class="form-group">   
+                    <div class="checkbox">
+                    <input type="hidden" formControlName="wednesdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="wednesdayslots0500pm" [(ngModel)]="wednesdayslots0500pm" />   
+                    </div>
+                    </div>
+
+                    <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0800am" class="checkbox style-2 pull-right"  [checked]="thursdayslots0800am" [(ngModel)]="thursdayslots0800am"  />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0830am" class="checkbox style-2 pull-right"  [checked]="thursdayslots0830am" [(ngModel)]="thursdayslots0830am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0900am" class="checkbox style-2 pull-right"  [checked]="thursdayslots0900am" [(ngModel)]="thursdayslots0900am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0930am" class="checkbox style-2 pull-right"  [checked]="thursdayslots0930am" [(ngModel)]="thursdayslots0930am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1000am" class="checkbox style-2 pull-right"  [checked]="thursdayslots1000am" [(ngModel)]="thursdayslots1000am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1030am" class="checkbox style-2 pull-right"  [checked]="thursdayslots1030am" [(ngModel)]="thursdayslots1030am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1100am" class="checkbox style-2 pull-right"  [checked]="thursdayslots1100am" [(ngModel)]="thursdayslots1100am"  />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1130am" class="checkbox style-2 pull-right"  [checked]="thursdayslots1130am" [(ngModel)]="thursdayslots1130am" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="mondayslots1200pm" [(ngModel)]="mondayslots1200pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots1230pm" [(ngModel)]="thursdayslots1230pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0100pm" [(ngModel)]="thursdayslots0100pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0130pm" [(ngModel)]="thursdayslots0130pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0200pm" [(ngModel)]="thursdayslots0200pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0230pm" [(ngModel)]="thursdayslots0230pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0300pm" [(ngModel)]="thursdayslots0300pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0330pm" [(ngModel)]="thursdayslots0330pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0400pm" [(ngModel)]="thursdayslots0400pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0430pm" [(ngModel)]="thursdayslots0430pm" />   
+                        </div>
+                        </div>
+                        <div class="form-group">   
+                        <div class="checkbox">
+                        <input type="hidden" formControlName="thursdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="thursdayslots0500pm" [(ngModel)]="thursdayslots0500pm" />   
+                        </div>
+                        </div>   
+                        
+                        <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0800am" class="checkbox style-2 pull-right"  [checked]="fridayslots0800am" [(ngModel)]="fridayslots0800am"  />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0830am" class="checkbox style-2 pull-right"  [checked]="fridayslots0830am" [(ngModel)]="fridayslots0830am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0900am" class="checkbox style-2 pull-right"  [checked]="fridayslots0900am" [(ngModel)]="fridayslots0900am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0930am" class="checkbox style-2 pull-right"  [checked]="fridayslots0930am" [(ngModel)]="fridayslots0930am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1000am" class="checkbox style-2 pull-right"  [checked]="fridayslots1000am" [(ngModel)]="fridayslots1000am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1030am" class="checkbox style-2 pull-right"  [checked]="fridayslots1030am" [(ngModel)]="fridayslots1030am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1100am" class="checkbox style-2 pull-right"  [checked]="fridayslots1100am" [(ngModel)]="fridayslots1100am"  />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1130am" class="checkbox style-2 pull-right"  [checked]="fridayslots1130am" [(ngModel)]="fridayslots1130am" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1200pm" class="checkbox style-2 pull-right"  [checked]="fridayslots1200pm" [(ngModel)]="fridayslots1200pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots1230pm" class="checkbox style-2 pull-right"  [checked]="fridayslots1230pm" [(ngModel)]="fridayslots1230pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0100pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0100pm" [(ngModel)]="fridayslots0100pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0130pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0130pm" [(ngModel)]="fridayslots0130pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0200pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0200pm" [(ngModel)]="fridayslots0200pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0230pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0230pm" [(ngModel)]="fridayslots0230pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0300pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0300pm" [(ngModel)]="fridayslots0300pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0330pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0330pm" [(ngModel)]="fridayslots0330pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0400pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0400pm" [(ngModel)]="fridayslots0400pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0430pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0430pm" [(ngModel)]="fridayslots0430pm" />   
+                            </div>
+                            </div>
+                            <div class="form-group">   
+                            <div class="checkbox">
+                            <input type="hidden" formControlName="fridayslots0500pm" class="checkbox style-2 pull-right"  [checked]="fridayslots0500pm" [(ngModel)]="fridayslots0500pm" />   
+                            </div>
+                            </div>   
+                            
+                            <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0800am" class="checkbox style-2 pull-right"  [checked]="saturdayslots0800am" [(ngModel)]="saturdayslots0800am"  />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0830am" class="checkbox style-2 pull-right"  [checked]="saturdayslots0830am" [(ngModel)]="saturdayslots0830am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0900am" class="checkbox style-2 pull-right"  [checked]="saturdayslots0900am" [(ngModel)]="saturdayslots0900am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0930am" class="checkbox style-2 pull-right"  [checked]="saturdayslots0930am" [(ngModel)]="saturdayslots0930am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1000am" class="checkbox style-2 pull-right"  [checked]="saturdayslots1000am" [(ngModel)]="saturdayslots1000am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1030am" class="checkbox style-2 pull-right"  [checked]="saturdayslots1030am" [(ngModel)]="saturdayslots1030am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1100am" class="checkbox style-2 pull-right"  [checked]="saturdayslots1100am" [(ngModel)]="saturdayslots1100am"  />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1130am" class="checkbox style-2 pull-right"  [checked]="saturdayslots1130am" [(ngModel)]="saturdayslots1130am" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1200pm" class="checkbox style-2 pull-right"  [checked]="saturslots1200pm" [(ngModel)]="saturdayslots1200pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots1230pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots1230pm" [(ngModel)]="saturdayslots1230pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0100pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0100pm" [(ngModel)]="saturdayslots0100pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0130pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0130pm" [(ngModel)]="saturdayslots0130pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0200pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0200pm" [(ngModel)]="saturdayslots0200pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0230pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0230pm" [(ngModel)]="saturdayslots0230pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0300pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0300pm" [(ngModel)]="saturdayslots0300pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0330pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0330pm" [(ngModel)]="saturdayslots0330pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0400pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0400pm" [(ngModel)]="saturdayslots0400pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0430pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0430pm" [(ngModel)]="saturdayslots0430pm" />   
+                                </div>
+                                </div>
+                                <div class="form-group">   
+                                <div class="checkbox">
+                                <input type="hidden" formControlName="saturdayslots0500pm" class="checkbox style-2 pull-right"  [checked]="saturdayslots0500pm" [(ngModel)]="saturdayslots0500pm" />   
+                                </div>
+                                </div>   
+                                
+                                <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0800am" class="checkbox style-2 pull-right"  [checked]="sundayslots0800am" [(ngModel)]="sundayslots0800am"  />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0830am" class="checkbox style-2 pull-right"  [checked]="sundayslots0830am" [(ngModel)]="sundayslots0830am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0900am" class="checkbox style-2 pull-right"  [checked]="sundayslots0900am" [(ngModel)]="sundayslots0900am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0930am" class="checkbox style-2 pull-right"  [checked]="sundayslots0930am" [(ngModel)]="sundayslots0930am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1000am" class="checkbox style-2 pull-right"  [checked]="sundayslots1000am" [(ngModel)]="sundayslots1000am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1030am" class="checkbox style-2 pull-right"  [checked]="sundayslots1030am" [(ngModel)]="sundayslots1030am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1100am" class="checkbox style-2 pull-right"  [checked]="sundayslots1100am" [(ngModel)]="sundayslots1100am"  />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1130am" class="checkbox style-2 pull-right"  [checked]="sundayslots1130am" [(ngModel)]="sundayslots1130am" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1200pm" class="checkbox style-2 pull-right"  [checked]="sundayslots1200pm" [(ngModel)]="sundayslots1200pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots1230pm" class="checkbox style-2 pull-right"  [checked]="sundayslots1230pm" [(ngModel)]="sundayslots1230pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0100pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0100pm" [(ngModel)]="sundayslots0100pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0130pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0130pm" [(ngModel)]="sundayslots0130pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0200pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0200pm" [(ngModel)]="sundayslots0200pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0230pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0230pm" [(ngModel)]="sundayslots0230pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0300pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0300pm" [(ngModel)]="sundayslots0300pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0330pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0330pm" [(ngModel)]="sundayslots0330pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0400pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0400pm" [(ngModel)]="sundayslots0400pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0430pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0430pm" [(ngModel)]="sundayslots0430pm" />   
+                                    </div>
+                                    </div>
+                                    <div class="form-group">   
+                                    <div class="checkbox">
+                                    <input type="hidden" formControlName="sundayslots0500pm" class="checkbox style-2 pull-right"  [checked]="sundayslots0500pm" [(ngModel)]="sundayslots0500pm" />   
+                                    </div>
+                                    </div>                           
+
+            </th>
+            </tr> 
+            </tbody>
+          </table> 
+    </form>
+   
+    <div *ngIf=" this.ctdoctor != 'undifined'">
+        <div *ngIf=" doctor._id == ctdoctor._id ">
+    <h5>Your online consultation service has been enabled.</h5>
+    <a  [routerLink]="['/doctor/doctordashboard/consulttime']" > <button class="btn btn-primary" type="button"  >Edit Your Consultation Time</button></a> &nbsp; 
+     </div>
+     </div>
+      
+     </div>
+      </div>

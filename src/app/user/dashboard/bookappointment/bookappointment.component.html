@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg">
+  
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+   
+      <ul class="nav navbar-nav navbar-left ml-auto">
+     
+             
+          <a  [routerLink]="['/user/dashboard/editprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+          <a  [routerLink]="['/user/dashboard/editpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+          <a [routerLink]="['/user/dashboard/bookappointment']" > <button class="btn btn-primary" type="button"  >Book Appointment</button></a>&nbsp; 
+          <a  [routerLink]="['/user/dashboard/pastappointment']" > <button class="btn btn-primary" type="button"  >Past Appointment</button></a>&nbsp; 
+          <a  [routerLink]="['/user/dashboard/upcomingappointment']" > <button class="btn btn-primary" type="button"  >Upcoming Appointment</button></a>&nbsp; 
+          <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+   
+    </ul>
+    </div>
+   
+  </nav>
+  <div class="bgprofile">
+  <hr>
+  <br>
+ 
+      <!-- edit form column -->
+      <flash-messages></flash-messages>
+      <div class="container" style="width: 37%" >        
+          <form class="p-3 mb-2 bg-danger text-white" [formGroup]="doctorbooksearchForm" (ngSubmit)= "onSearchSubmit(doctorbooksearchForm.value)">
+              <h4 class="font-weight-bold text-white" >Book Appointment</h4>
+                <div class="form-group">
+                 <label for="location1" class="control-label">Choose Location</label>
+                 <select class="form-control" style=" height:35px;" formControlName="doctorsearchlocation" [(ngModel)]="doctorsearchlocation">
+                    <option value="Illinois">Illinois</option>
+                    <option value="New York">New York</option>
+                    <option value="California">California</option>
+                    <option value="Indiana">Indiana</option>
+                 </select>
+                </div>
+                <div class="form-group">
+                <label for="type1" class="control-label">Choose Speciality</label>
+                 <select class="form-control" style=" height:35px;" formControlName="doctorsearchspeciality" [(ngModel)]="doctorsearchspeciality">
+                    <option value="Gastroenterology">Gastroenterology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Psychiatry">Psychiatry</option>
+                    <option value="Obsterics and Gynaecology"> Obsterics and Gynaecology</option>
+                    <option value="Cardiology">Cardiology</option>
+                 </select>
+                </div>
+             
+              <button class="btn btn-primary" type="submit">Search Doctors</button>
+              </form>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+      </div>
+  
+
+      <div class="container-fluid" *ngFor ="let doctor of doctors | paginate: { itemsPerPage: 10, currentPage: p }">
+          <div *ngIf="this.doctorsearchlocation==doctor.state && this.doctorsearchspeciality==doctor.speciality">
+              <br>
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                  <th scope="col">Profile Img</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Speciality</th>
+                                <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+                                <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+                              </tr>
+                            </thead>
+                            <tbody >
+                                  <tr  >
+             
+                                <td> <img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></td>
+                                <td><a href="http://localhost:3000/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></td>
+                                <td>{{doctor.speciality}}</td>
+                                <td><a href="http://localhost:3000/user/dashboard/bookappointmentdoctor/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
+                             
+                              </tr> 
+                           
+                            </tbody>
+                          </table> 
+                          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            </div>
+            </div>

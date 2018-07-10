@@ -1,0 +1,65 @@
+
+<nav class="navbar navbar-expand-lg">
+
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+ 
+    <ul class="nav navbar-nav navbar-left ml-auto">
+   
+           
+        <a  [routerLink]="['/user/dashboard/editprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+        <a  [routerLink]="['/user/dashboard/editpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+        <a [routerLink]="['/user/dashboard/bookappointment']" > <button class="btn btn-primary" type="button"  >Book Appointment</button></a>&nbsp; 
+        <a  [routerLink]="['/user/dashboard/pastappointment']" > <button class="btn btn-primary" type="button"  >Past Appointment</button></a>&nbsp; 
+        <a  [routerLink]="['/user/dashboard/upcomingappointment']" > <button class="btn btn-primary" type="button"  >Upcoming Appointment</button></a>&nbsp; 
+        <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+ 
+  </ul>
+  </div>
+ 
+</nav>
+<div class="bgprofile">
+<hr>
+<div class="container">
+<!-- edit form column -->
+<div class="col-md-9 personal-info">  
+  <h3 class="hint-text">Upcoming Appointments!</h3>
+  <form  [formGroup]="userForm" (ngSubmit)= "onEditSubmit(userForm.value)">
+      <div class="form-group">
+          <input type="hidden" formControlName="_id" class="form-control"  style="width: 300px;" [(ngModel)]="user._id">
+        </div>
+    </form>
+    <table align="left" style="width:700px">
+      <thead>
+        <tr>  
+       <br>
+       <br>
+        </tr>
+      </thead>
+      <tbody>
+              
+          <tr *ngFor ="let appointment of appointments | paginate: { itemsPerPage: 10, currentPage: p }">
+              <div *ngIf="user._id == appointment.userid  &&  appointment.systemappointmentdate.slice(0,10) > this.today || (this.today == appointment.systemappointmentdate.slice(0,10) &&  appointment.systemappointmenttime > this.currenttimevalue )">             <h4>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Date:&nbsp;{{appointment.appointmentdate.slice(0,10)}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Time:&nbsp;{{appointment.appointmenttime}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Consult Method:&nbsp;{{appointment.consultmethod}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Paypal Transaction ID:&nbsp;{{appointment.paytransid}}
+           <br> <div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == appointment.doctorid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Doctor Name:&nbsp;<a href="http://localhost:3000/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></div></div></h4>
+           <p>-----------------------------------------------------------------------------------</p>
+           
+          <br>
+           </div>
+          </tr>
+    
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>    
+<br>
+<br>
+<br>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+

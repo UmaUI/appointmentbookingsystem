@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+<hr>
+<br>
+  <br>
+  
+  <div class="container-fluid">
+      <h3>&nbsp;&nbsp;&nbsp;Manage Customer's Details</h3>
+      <br>
+     
+      <table class="thead-dark">
+        <tbody>
+              <tr *ngFor ="let customer of customers">
+                <div *ngIf ="customer._id == this.id">
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerbookappointmentsearch/{{customer._id}}"> <input type="botton" value="Book Appointment" class="btn btn-info"></a></td>
+                    <br>
+                    <br>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Profile Img:&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="customer.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{customer._id}}/{{customer.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomerprofileimg/{{customer._id}}"> <input type="botton" value="Edit Profile Image" class="btn btn-danger"></a></td>
+             <br>
+             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Name:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomername/{{customer._id}}"> <input type="botton" value="Edit Name" class="btn btn-danger"></a></td>
+           
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Email:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.email}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomeremail/{{customer._id}}"> <input type="botton" value="Edit Email" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.mobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomermobileno/{{customer._id}}"> <input type="botton" value="Edit Mobile Number" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>PID:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.pid}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomerpid/{{customer._id}}"> <input type="botton" value="Edit PID" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Username:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.username}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomerusername/{{customer._id}}"> <input type="botton" value="Edit Username" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Alternate mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.altermobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomeraltermobileno/{{customer._id}}"> <input type="botton" value="Edit Alter. Mobile Number" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Date of birth:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.dateofbirth}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomerdateofbirth/{{customer._id}}"> <input type="botton" value="Edit Date of birth" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Gender:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.gender}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomergender/{{customer._id}}"> <input type="botton" value="Edit Gender" class="btn btn-danger"></a></td>
+            <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Address:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.address1}},{{customer.address2}},{{customer.state}},{{customer.country}}<a href="http://localhost:3000/admin/admindashboard/admineditcustomeraddress/{{customer._id}}"> <input type="botton" value="Edit Address" class="btn btn-danger"></a></td>
+           <br>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Active:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.active}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditcustomeractive/{{customer._id}}"> <input type="botton" value="Edit Active Status" class="btn btn-danger"></a></td>
+           <br>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerpastappointments/{{customer._id}}"> <input type="botton" value="Past Appointments" class="btn btn-info"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerupcomingappointments/{{customer._id}}"> <input type="botton" value="Upcoming Appointments" class="btn btn-info"></a></td>
+          <br>
+
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+           <td><input type="botton" (click) = "deleteCustomerForm(customer._id)" value="Delete" class="btn btn-danger"></td>
+                </div>
+          </tr>
+         
+          
+        </tbody>
+      </table> 
+    
+  </div>
+  

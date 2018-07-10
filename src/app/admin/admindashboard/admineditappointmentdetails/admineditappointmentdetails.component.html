@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+    <br>
+    
+    <div class="container-fluid">
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage Appointment Details</h3>
+        <br>
+       
+        <table class="thead-dark">
+          <tbody>
+                <tr *ngFor ="let appointment of appointments">
+                  <div *ngIf ="appointment._id == this.id">
+               
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == appointment.doctorid"><b>Doctor Name:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{doctor.name}}</div></div></td>
+              <br>
+              
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><b>Appointment Date:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{appointment.appointmentdate}}</td>
+              <br>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><b>Consulting Method:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{appointment.consultmethod}}&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerconsultmethod/{{appointment._id}}"><input type="botton" value="Edit Consulting Method" class="btn btn-danger"></a>&nbsp;&nbsp;&nbsp;&nbsp;<b>Paypal Transaction ID:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{appointment.paytransid}}<a href="http://localhost:3000/admin/admindashboard/admincustomerpaytransid/{{appointment._id}}"> <input type="botton" value="Edit Paypal Trans ID" class="btn btn-danger"></a></td>
+              <br>
+          
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><div *ngFor ="let customer of customers"><div *ngIf="customer._id == appointment.userid"><b>Customer Name:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{customer.name}}</div></div></td>
+              <br>
+              <br>
+                  </div>
+            </tr>
+           
+            
+          </tbody>
+        </table> 
+      
+    </div>

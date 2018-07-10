@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+    <br>
+    <div class="container-fluid">
+        <h3 class="hint-text">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Past Customers Appointments!</h3> 
+        
+        <br>
+        <table class="table" align="left" style="width:700px">
+          <thead>
+            <tr>  
+      
+            </tr>
+          </thead>
+          <tbody>
+                  
+              <tr *ngFor ="let appointment of appointments | paginate: { itemsPerPage: 10, currentPage: p }">
+                <div *ngIf="appointment.doctorid == this.id && (this.today > appointment.systemappointmentdate.slice(0,10)  || (this.today == appointment.systemappointmentdate.slice(0,10) &&  this.currenttimevalue > appointment.systemappointmenttime))">
+                  <h4>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Date:&nbsp;{{appointment.appointmentdate.slice(0,10)}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Time:&nbsp;{{appointment.appointmenttime}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Consult Method:&nbsp;{{appointment.consultmethod}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Paypal Transaction ID:&nbsp;{{appointment.paytransid}}
+               <div *ngFor ="let customer of customers"><div *ngIf="customer._id == appointment.userid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Customer Name:&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerprofile/{{customer._id}}" target="_blank">{{customer.name}}</a></div></div></h4>
+               <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerfeedbackuser/{{appointment.doctorid}}/{{appointment.userid}}"><input type="botton" value="Customer Feedback" class="btn btn-info"></a></p>
+               <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admincustomerdoctordescription/{{appointment.doctorid}}/{{appointment.userid}}"><input type="botton" value="Doctor's Description" class="btn btn-danger"></a></p> 
+             <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/admin/admindashboard/admineditappointmentdetails/{{appointment._id}}"><input type="botton" value="Edit" class="btn btn-info"></a></p>
+             <p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input type="botton" (click) = "deleteAppointmentForm(appointment._id)" value="Delete" class="btn btn-danger"></p>                  
+              <br>
+               </div>
+              
+              </tr>
+        
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table> 
+        
+    </div>

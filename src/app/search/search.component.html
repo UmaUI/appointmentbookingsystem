@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<div *ngIf="this.searchlocation!=undefined && this.searchspeciality!=undefined">
+    <br>
+              <table class="table table-dark">
+                  <thead>
+                    <tr>
+                        <th scope="col">Profile Img</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Speciality</th>
+                      <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+                      <th scope="col">&nbsp; &nbsp;&nbsp; &nbsp;  </th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor ="let doctor of doctors | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <tr *ngIf="this.searchlocation==doctor.state && this.searchspeciality==doctor.speciality" >
+   
+                      <td> <img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></td>
+                      <td><a href="http://localhost:3000/doctorprofileinfo/{{doctor._id}}" target="_blank">{{doctor.name}}</a></td>
+                      <td>{{doctor.speciality}}</td>
+                      <td><a href="http://localhost:3000/user/dashboard/bookappointmentdoctor/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
+                    </tr> 
+                 
+                  </tbody>
+                </table> 
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>

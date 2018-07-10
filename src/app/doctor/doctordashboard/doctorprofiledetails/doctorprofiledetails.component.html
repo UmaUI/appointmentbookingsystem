@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+               
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/enableonlineconsult']" > <button class="btn btn-primary" type="button"  >Consultation Time</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewappointments']" > <button class="btn btn-primary" type="button"  >View Appointments</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewcustomers']" > <button class="btn btn-primary" type="button"  >View Customers</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+     
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+ <div class="container-fluid" *ngFor ="let doctor of doctors">
+    <div *ngIf="doctor._id==this.id">
+        <br>
+        <h3 class="hint-text">&nbsp;&nbsp;&nbsp;&nbsp;Your doctor's profile details!</h3> 
+        
+                  <table>
+                      <thead>
+                        <tr>
+                          
+                        </tr>
+                      </thead>
+                      <tbody >
+                         <br>
+       
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile Img: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.name}}</h5></tr>
+                         <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Speciality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.speciality}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.email}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.gender}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.mobileno}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alternate Mobile Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.altermobileno}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.state}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.country}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{doctor.address1}}&nbsp;{{doctor.address2}}</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer Feedback:</h5></tr>
+                          <br>
+                          <tr><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ngb-rating [rate]="this.finalrate"></ngb-rating>({{ this.totalcuttentratecount }}&nbsp;Customers)&nbsp;{{this.finalrate}}&nbsp;out&nbsp;of&nbsp;10</h5></tr>
+                          <br>
+                          <tr *ngFor ="let feedback of feedbacks | paginate: { itemsPerPage: 10, currentPage: p }">
+                              <div *ngIf="this.id == feedback.doctorid">
+                                <h5>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Feedback:</b>&nbsp;{{feedback.userfeedback}}<br>
+                                  <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Customer:</b>&nbsp;<div *ngFor ="let customer of customers"><div *ngIf="customer._id == feedback.userid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/doctor/doctordashboard/customerprofile/{{customer._id}}" target="_blank">{{customer.name}}</a></div></div>
+                                  <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Rating:</b>&nbsp;<ngb-rating [rate]="feedback.currentRate"></ngb-rating><br>
+                                  
+                                  <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{feedback.dateoffeedback.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{feedback.timeoffeedback}}<br></h5>                             
+                             
+                             <p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;--------------------------------------------------------------------</p>
+                           
+                             </div>
+                            </tr>
+                     
+                      </tbody>
+                    </table> 
+                   
+      </div>
+      </div>

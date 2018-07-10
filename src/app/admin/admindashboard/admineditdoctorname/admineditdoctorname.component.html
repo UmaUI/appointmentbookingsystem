@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+            <a  [routerLink]="['/admin/admindashboard/admineditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/admineditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminadddoctor']"> <button class="btn btn-primary" type="button"  >Add Doctor</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewdoctorslist']" > <button class="btn btn-primary" type="button"  >Doctors List</button></a> &nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewcustomerslist']" > <button class="btn btn-primary" type="button"  >Customers List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewappointmentslist']" > <button class="btn btn-primary" type="button"  >Appointments List</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminviewfeedbacks']" > <button class="btn btn-primary" type="button"  >Customers Feedbacks</button></a>&nbsp; 
+            <a  [routerLink]="['/admin/admindashboard/adminallocatepid']" > <button class="btn btn-primary" type="button"  >Allocate PID</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+  <div class="container">
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">  
+          <form   [formGroup]="doctorForm" (ngSubmit)= "onUpdateSubmit(doctorForm.value)">
+              <h2>Allocate Name</h2>          
+              <div class="form-group">
+              <label>Enter Name</label>
+              <input type="text"   formControlName="name" class="form-control"  style="width: 300px;"  [(ngModel)]="name" >
+              </div>
+              <div class="alert alert-danger" *ngIf="doctorForm.controls.name.errors && (doctorForm.controls.name.dirty || doctorForm.controls.name.touched)">
+              <div [hidden]="!doctorForm.controls.name.errors.required">Name is required</div>
+              <div [hidden]="!doctorForm.controls.name.errors.maxlength">Name cannot be more than 15 charactors long</div>
+              </div>
+                <flash-messages></flash-messages>
+              <input type="submit" class="btn btn-primary" value="Update" [disabled]=!doctorForm.valid>
+              </form>
+        
+  
+  </div>
+  </div>

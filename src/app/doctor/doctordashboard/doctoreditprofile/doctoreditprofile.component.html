@@ -1,0 +1,161 @@
+<nav class="navbar navbar-expand-lg">
+    
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+     
+        <ul class="nav navbar-nav navbar-left ml-auto">
+       
+               
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditprofile']" > <button class="btn btn-primary" type="button"  >Edit Profile</button></a> &nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctoreditpassword']" > <button class="btn btn-primary" type="button"  >Edit Password</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/enableonlineconsult']" > <button class="btn btn-primary" type="button"  >Consultation Time</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewappointments']" > <button class="btn btn-primary" type="button"  >View Appointments</button></a>&nbsp; 
+            <a  [routerLink]="['/doctor/doctordashboard/doctorviewcustomers']" > <button class="btn btn-primary" type="button"  >View Customers</button></a>&nbsp; 
+            <a  (click)="onLogoutClick()" href="#"> <button class="btn btn-primary" type="button"  >Logout</button></a>
+     
+      </ul>
+      </div>
+     
+    </nav>
+  <hr>
+  <br>
+  <div class="container">
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">  
+     
+        
+  <form  [formGroup]="doctorForm" (ngSubmit)= "onEditSubmit(doctorForm.value)">
+    <h2 >Edit Profile</h2>
+    <img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>
+    
+   <ng-template #noImage><img src="./assets/images/profile.jpg"></ng-template>
+   <br>
+   <br>
+    <label>Upload Profile Image</label>
+    <br>
+    <input id="photo" type="file" /><br>
+    <label><b>Step1:</b> Click upload button.</label>&nbsp;<label><b>Step2:</b> Click save button.</label>
+    <button type="button" class="btn btn-success btn-s" (click)="upload(doctorForm.value)">Upload</button>
+    <button type="button" class="btn btn-success btn-s" (click)="save(doctorForm.value)">Save</button>
+    <br>
+      <div class="form-group">     
+        <input type="hidden" formControlName="profileimg"   id="profileimg" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.profileimg">
+      </div>
+    <div class="form-group">
+        <input type="hidden" formControlName="_id" class="form-control"  style="width: 300px;" [(ngModel)]="doctor._id">
+      </div>
+    <div class="form-group">
+    <label>Name*</label>
+    <input type="text" formControlName="name" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.name">
+  </div>
+  <div class="alert alert-danger" *ngIf="doctorForm.controls.name.errors && (doctorForm.controls.name.dirty || doctorForm.controls.name.touched)">
+      <div [hidden]="!doctorForm.controls.name.errors.required">Name is required</div>
+      <div [hidden]="!doctorForm.controls.name.errors.maxlength">Name cannot be more than 15 charactors long</div>
+    </div>
+  <div class="form-group">
+    <label>Username*</label>
+    <input type="text" formControlName="username" class="form-control"  style="width: 300px; background-color: #FFFFFF;" [(ngModel)]="doctor.username" readonly>
+  </div>
+  <div class="form-group">
+    <label>Email*</label>
+    <input type="text" formControlName="email" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.email">
+  </div>
+  <div class="alert alert-danger" *ngIf="doctorForm.controls.email.errors && (doctorForm.controls.email.dirty || doctorForm.controls.email.touched)">
+      <div [hidden]="!doctorForm.controls.email.errors.required">Email is required</div>
+    </div>
+    <div class="form-group">
+        <label>Speciality*</label>
+      <select  style=" height:35px; width: 300px;" formControlName="speciality" placeholder="Add Speciality..." class="form-control" [(ngModel)]="doctor.speciality">
+          <option value="Gastroenterology">Gastroenterology</option>
+          <option value="Dermatology">Dermatology</option>
+          <option value="Psychiatry">Psychiatry</option>
+          <option value="Obsterics and Gynaecology"> Obsterics and Gynaecology</option>
+          <option value="Cardiology">Cardiology</option>
+        </select>
+    </div>
+  <div class="form-group">
+    <input type="hidden" formControlName="password" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.password">
+  </div>
+        <div class="form-group">
+            <label>Date of Birth* </label>
+            <input type="date"  formControlName="dateofbirth" class="form-control" style="width: 200px;" [(ngModel)]="doctor.dateofbirth">
+            </div>
+    <div class="alert alert-danger" *ngIf="doctorForm.controls.dateofbirth.errors && (doctorForm.controls.dateofbirth.dirty || doctorForm.controls.dateofbirth.touched)">
+        <div [hidden]="!doctorForm.controls.dateofbirth.errors.required">Date of birth is required</div>
+      </div>
+    <label>Gender*</label>
+    <div class="row">
+        <div class="col-md-auto">
+        <div class="form-group">
+            <select  style=" height:35px; width: 300px;" formControlName="gender" placeholder="Add Gender..." class="form-control" [(ngModel)]="doctor.gender" >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="doctorForm.controls.gender.errors && (doctorForm.controls.gender.dirty || doctorForm.controls.gender.touched)">
+        <div [hidden]="!doctorForm.controls.gender.errors.required">Gender is required</div>
+      </div>
+    <div class="form-group">
+        <label>Mobile Number(format: xxx-xxx-xxxx):*</label>
+        <input type="text" formControlName="mobileno" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.mobileno">
+      </div>
+      <div class="alert alert-danger" *ngIf="doctorForm.controls.mobileno.errors && (doctorForm.controls.mobileno.dirty || doctorForm.controls.mobileno.touched)">
+          <div [hidden]="!doctorForm.controls.mobileno.errors.required">Mobile Number is required</div>
+        </div>
+      <div class="form-group">
+          <label>Alternate Mobile Number(format: xxx-xxx-xxxx):</label>
+          <input type="text" formControlName="altermobileno" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.altermobileno">
+        </div>
+        <label>Country*</label>
+        <div class="row">
+            <div class="col-md-auto">
+            <div class="form-group">
+                <select  style="width: 300px;" formControlName="country" placeholder="Add Country..." class="form-control" [(ngModel)]="doctor.country">
+                    <option value="USA">USA</option>
+                  </select>
+                </div>
+                </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="doctorForm.controls.country.errors && (doctorForm.controls.country.dirty || doctorForm.controls.country.touched)">
+            <div [hidden]="!doctorForm.controls.country.errors.required">Country is required</div>
+          </div>
+        <label>State*</label>
+        <div class="row">
+            <div class="col-md-auto">
+            <div class="form-group">
+                <select  style=" height:35px; width: 300px;" formControlName="state" placeholder="Add State..." class="form-control" [(ngModel)]="doctor.state">
+                    <option value="Illinois">Illinois</option>
+                    <option value="New York">New York</option>
+                    <option value="California">California</option>
+                    <option value="Indiana">Indiana</option>
+                  </select>
+                </div>
+                </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="doctorForm.controls.state.errors && (doctorForm.controls.state.dirty || doctorForm.controls.state.touched)">
+            <div [hidden]="!doctorForm.controls.state.errors.required">State is required</div>
+          </div>
+        <div class="form-group">
+            <label>Address1*</label>
+            <input type="text" formControlName="address1" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.address1">
+          </div>
+          <div class="alert alert-danger" *ngIf="doctorForm.controls.address1.errors && (doctorForm.controls.address1.dirty || doctorForm.controls.address1.touched)">
+              <div [hidden]="!doctorForm.controls.address1.errors.required">Address is required</div>
+              <div [hidden]="!doctorForm.controls.address1.errors.maxlength">Address cannot be more than 20 charactors long</div>
+            </div>
+          <div class="form-group">
+              <label>Address2*</label>
+              <input type="text" formControlName="address2" class="form-control"  style="width: 300px;" [(ngModel)]="doctor.address2">
+            </div>
+            <div class="alert alert-danger" *ngIf="doctorForm.controls.address2.errors && (doctorForm.controls.address2.dirty || doctorForm.controls.address2.touched)">
+                <div [hidden]="!doctorForm.controls.address2.errors.required">Address is required</div>
+                <div [hidden]="!doctorForm.controls.address2.errors.maxlength">Address cannot be more than 20 charactors long</div>
+              </div>
+      <flash-messages></flash-messages>
+      <div>* - is required</div>
+  <input type="submit" class="btn btn-primary" value="Save changes" [disabled]=!doctorForm.valid>
+  
+  </form>
+  </div>
+  </div>

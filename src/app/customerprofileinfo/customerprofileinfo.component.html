@@ -1,0 +1,46 @@
+<div class="container-fluid" *ngFor ="let customer of customers">
+    <div *ngIf="customer._id==this.id">
+        <br>   
+        <h3 class="hint-text">&nbsp;&nbsp;&nbsp;&nbsp;Customer profile details!</h3> 
+        
+                  <table>
+                      <thead>
+                        <tr>
+                          
+                        </tr>
+                      </thead>
+                      <tbody >
+                         <br>
+       
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile Img: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="customer.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{customer._id}}/{{customer.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></h5></tr>
+                          <br>
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{customer.name}}</h5></tr>
+                         <br>
+
+                      
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{customer.gender}}</h5></tr>
+                          <br>
+                  
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{customer.state}}</h5></tr>
+                          <br>
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{customer.country}}</h5></tr>
+                          <br>
+                         
+                          <tr><h5 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doctor Description:</h5></tr>
+                          <tr *ngFor ="let description of descriptions | paginate: { itemsPerPage: 10, currentPage: p }">
+                              <div *ngIf="this.id == description.userid">
+                                <h5 >&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Description:</b>&nbsp;{{description.doctordescription}}<br>
+                                  <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Doctor:</b>&nbsp;<div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == description.doctorid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="http://localhost:3000/doctorprofileinfo/{{doctor._id}}" target="_blank">{{doctor.name}}</a></div></div>
+                                  
+                             <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.timeofdescription}}<br></h5>                             
+                             
+                             <p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;--------------------------------------------------------------------</p>
+                           
+                             </div>
+                            </tr>
+                     
+                      </tbody>
+                    </table> 
+                   
+      </div>
+      </div>
