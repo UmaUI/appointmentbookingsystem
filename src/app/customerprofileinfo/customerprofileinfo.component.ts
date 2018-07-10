@@ -10,7 +10,7 @@ import { Doctor} from '../../../models/viewdoctor';
 import "rxjs/add/operator/do";
 //import the map function to be used with the http library
 import "rxjs/add/operator/map";
-const URL = 'http://localhost:3000/file/upload';
+const URL = 'https://doctorconsultonline.herokuapp.com/file/upload';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Description} from '../../../models/viewdescription';

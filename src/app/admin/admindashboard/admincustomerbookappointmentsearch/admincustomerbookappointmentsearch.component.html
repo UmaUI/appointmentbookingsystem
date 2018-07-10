@@ -70,7 +70,7 @@
                                 <td> <img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></td>
                                 <td>{{doctor.name}}</td>
                                 <td>{{doctor.speciality}}</td>
-                                <td><a href="https://consultonline.herokuapp.com/admin/admindashboard/admincustomerbookappointment/{{this.customerid}}/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
+                                <td><a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admincustomerbookappointment/{{this.customerid}}/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
                              
                               </tr> 
                            

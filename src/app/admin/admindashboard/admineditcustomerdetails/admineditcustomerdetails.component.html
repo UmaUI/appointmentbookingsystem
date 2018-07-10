@@ -30,45 +30,45 @@
               <tr *ngFor ="let customer of customers">
                 <div *ngIf ="customer._id == this.id">
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admincustomerbookappointmentsearch/{{customer._id}}"> <input type="botton" value="Book Appointment" class="btn btn-info"></a></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admincustomerbookappointmentsearch/{{customer._id}}"> <input type="botton" value="Book Appointment" class="btn btn-info"></a></td>
                     <br>
                     <br>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Profile Img:&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="customer.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{customer._id}}/{{customer.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomerprofileimg/{{customer._id}}"> <input type="botton" value="Edit Profile Image" class="btn btn-danger"></a></td>
+            <td>Profile Img:&nbsp;&nbsp;&nbsp;&nbsp;<img *ngIf="customer.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{customer._id}}/{{customer.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomerprofileimg/{{customer._id}}"> <input type="botton" value="Edit Profile Image" class="btn btn-danger"></a></td>
              <br>
              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Name:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomername/{{customer._id}}"> <input type="botton" value="Edit Name" class="btn btn-danger"></a></td>
+            <td>Name:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomername/{{customer._id}}"> <input type="botton" value="Edit Name" class="btn btn-danger"></a></td>
            
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Email:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.email}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomeremail/{{customer._id}}"> <input type="botton" value="Edit Email" class="btn btn-danger"></a></td>
+            <td>Email:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.email}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomeremail/{{customer._id}}"> <input type="botton" value="Edit Email" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.mobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomermobileno/{{customer._id}}"> <input type="botton" value="Edit Mobile Number" class="btn btn-danger"></a></td>
+            <td>Mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.mobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomermobileno/{{customer._id}}"> <input type="botton" value="Edit Mobile Number" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>PID:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.pid}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomerpid/{{customer._id}}"> <input type="botton" value="Edit PID" class="btn btn-danger"></a></td>
+            <td>PID:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.pid}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomerpid/{{customer._id}}"> <input type="botton" value="Edit PID" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Username:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.username}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomerusername/{{customer._id}}"> <input type="botton" value="Edit Username" class="btn btn-danger"></a></td>
+            <td>Username:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.username}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomerusername/{{customer._id}}"> <input type="botton" value="Edit Username" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Alternate mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.altermobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomeraltermobileno/{{customer._id}}"> <input type="botton" value="Edit Alter. Mobile Number" class="btn btn-danger"></a></td>
+            <td>Alternate mobile number:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.altermobileno}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomeraltermobileno/{{customer._id}}"> <input type="botton" value="Edit Alter. Mobile Number" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Date of birth:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.dateofbirth}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomerdateofbirth/{{customer._id}}"> <input type="botton" value="Edit Date of birth" class="btn btn-danger"></a></td>
+            <td>Date of birth:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.dateofbirth}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomerdateofbirth/{{customer._id}}"> <input type="botton" value="Edit Date of birth" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Gender:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.gender}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomergender/{{customer._id}}"> <input type="botton" value="Edit Gender" class="btn btn-danger"></a></td>
+            <td>Gender:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.gender}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomergender/{{customer._id}}"> <input type="botton" value="Edit Gender" class="btn btn-danger"></a></td>
             <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Address:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.address1}},{{customer.address2}},{{customer.state}},{{customer.country}}<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomeraddress/{{customer._id}}"> <input type="botton" value="Edit Address" class="btn btn-danger"></a></td>
+            <td>Address:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.address1}},{{customer.address2}},{{customer.state}},{{customer.country}}<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomeraddress/{{customer._id}}"> <input type="botton" value="Edit Address" class="btn btn-danger"></a></td>
            <br>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>Active:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.active}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admineditcustomeractive/{{customer._id}}"> <input type="botton" value="Edit Active Status" class="btn btn-danger"></a></td>
+            <td>Active:&nbsp;&nbsp;&nbsp;&nbsp;{{customer.active}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admineditcustomeractive/{{customer._id}}"> <input type="botton" value="Edit Active Status" class="btn btn-danger"></a></td>
            <br>
            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-           <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admincustomerpastappointments/{{customer._id}}"> <input type="botton" value="Past Appointments" class="btn btn-info"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://consultonline.herokuapp.com/admin/admindashboard/admincustomerupcomingappointments/{{customer._id}}"> <input type="botton" value="Upcoming Appointments" class="btn btn-info"></a></td>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admincustomerpastappointments/{{customer._id}}"> <input type="botton" value="Past Appointments" class="btn btn-info"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doctorconsultonline.herokuapp.com/admin/admindashboard/admincustomerupcomingappointments/{{customer._id}}"> <input type="botton" value="Upcoming Appointments" class="btn btn-info"></a></td>
           <br>
 
            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>

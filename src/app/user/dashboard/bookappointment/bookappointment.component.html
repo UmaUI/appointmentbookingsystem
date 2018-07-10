@@ -72,9 +72,9 @@
                                   <tr  >
              
                                 <td> <img *ngIf="doctor.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{doctor._id}}/{{doctor.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/></td>
-                                <td><a href="https://consultonline.herokuapp.com/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></td>
+                                <td><a href="https://doctorconsultonline.herokuapp.com/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></td>
                                 <td>{{doctor.speciality}}</td>
-                                <td><a href="https://consultonline.herokuapp.com/user/dashboard/bookappointmentdoctor/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
+                                <td><a href="https://doctorconsultonline.herokuapp.com/user/dashboard/bookappointmentdoctor/{{doctor._id}}"> <input type="botton" value="Book Appointment" class="btn btn-danger"></a></td>
                              
                               </tr> 
                            
