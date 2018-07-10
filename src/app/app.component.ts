@@ -138,7 +138,7 @@ onSearchSubmit(doctor){
         if( this.searchname != undefined || this.searchspeciality != undefined)
         {
          
-        window.open('https://consultonline.herokuapp.com/topsearch/'+this.doctorsearch, "_self");
+        window.open('https://doctorconsultonline.herokuapp.com/topsearch/'+this.doctorsearch, "_self");
         }
         else
              {
