@@ -26,8 +26,8 @@
       
 <form  [formGroup]="adminForm" (ngSubmit)= "onEditSubmit(adminForm.value)">
   <h2>Edit Profile</h2>
-  <img *ngIf="admin.profileimg; else noImage" style="width:100px;height:100px;" src="assets/uploads/{{admin._id}}/{{admin.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>
-  
+  <img *ngIf="admin.profileimg; else noImage" style="width:100px;height:100px;" src="home/doctorconsultonline/src/assets/uploads/{{admin._id}}/{{admin.profileimg}}" onerror="this.src ='assets/images/profile.jpg';"/>
+
  <ng-template #noImage><img src="./assets/images/profile.jpg"></ng-template>
  <br>
  <br>
