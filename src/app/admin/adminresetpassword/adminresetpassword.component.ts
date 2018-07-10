@@ -48,14 +48,13 @@ export class AdminresetpasswordComponent implements OnInit {
   }
 
   onResetPasswordSubmit(admin){
-    //console.log('success');
+
    var _admin = {
     _id:this.id,
      password: this.password,
     
      };
-        // Required Fields
-     //console.log(user._id);
+   
      //Update User
      this.authService.resetAdminPassword(_admin).subscribe(data =>{
       this._flashMessagesService.show('Your Password have been saved', {cssClass:'alert-success', timeout: 3000}); 

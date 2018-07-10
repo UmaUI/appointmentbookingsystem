@@ -95,7 +95,7 @@ export class AdvancedsearchComponent implements OnInit {
         {
           if( this.topsearchlocation == this.searchlocation && this.topsearchspeciality == this.searchspeciality )      
           {
-          window.open('http://localhost:3000/search/'+this.searchlocation+'/'+this.searchspeciality, "_self");
+          window.open('https://consultonline.herokuapp.com/search/'+this.searchlocation+'/'+this.searchspeciality, "_self");
           }
         }
       }

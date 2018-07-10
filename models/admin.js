@@ -13,7 +13,6 @@ const adminSchema = mongoose.Schema({
    },
    dateofbirth: {
     type: String
-    //type: Date, default: Date.now
    },
    gender: {
     type: String
@@ -150,27 +149,16 @@ module.exports.addadminRegister = function(newadminRegister, callback){
                 profileimg: newadminRegister.profileimg
            }
        
-       //console.log(newuserRegister.password);
             bcrypt.genSalt(10, (err, salt) =>{ 
              bcrypt.hash(newadminRegister.password, salt, (err, hash) =>{
                  if(err) throw err;
                  newadminRegister.password = hash;
                  newadminRegister.set(newadminRegister.password, hash);
-       
-                 //console.log(newuserRegister.password);
-                 //console.log(newuserRegister);
-                 //console.log(update.password);
                  update.password = newadminRegister.password;
-                 //console.log(update);
-                  //console.log(newuserRegister.password);
-                  adminRegister.findOneAndUpdate(query, update, options, callback);
-                 
-                
-       
-                 //console.log('win');
+                 adminRegister.findOneAndUpdate(query, update, options, callback);
+              
              });
            });
-            //userRegister.findOneAndUpdate(query, update, options, callback);
          }
 
          module.exports.retrieveAdminRegister = function(email, callback){
@@ -185,29 +173,16 @@ module.exports.addadminRegister = function(newadminRegister, callback){
                 var update = {
                   password: newadminRegister.password
                }
-           
-           //console.log(newuserRegister.password);
+        
                 bcrypt.genSalt(10, (err, salt) =>{ 
                  bcrypt.hash(newadminRegister.password, salt, (err, hash) =>{
                      if(err) throw err;
                      newadminRegister.password = hash;
                      newadminRegister.set(newadminRegister.password, hash);
-           
-                     //console.log(newuserRegister.password);
-                     //console.log(newuserRegister);
-                     //console.log(update.password);
                      update.password = newadminRegister.password;
-                     //console.log(update);
-                      //console.log(newuserRegister.password);
                      adminRegister.findOneAndUpdate(query, update, options, callback);
-                     
-                    
-           
-                     //console.log('win');
                  });
                });
-                //userRegister.findOneAndUpdate(query, update, options, callback);
-     
        }
 
        module.exports.saveadminRegister = function(_id, newadminRegister, options, callback){

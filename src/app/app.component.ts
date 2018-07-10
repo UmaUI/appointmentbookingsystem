@@ -112,9 +112,7 @@ onSearchSubmit(doctor){
   
     var doctorsearch = "";
     var doctors = this.doctors;
-   //var _customer = {
-     //emailphone: this.emailphone
-     //};
+
      for(var i =0;i < doctors.length; i++){
   
      
@@ -139,8 +137,8 @@ onSearchSubmit(doctor){
     
         if( this.searchname != undefined || this.searchspeciality != undefined)
         {
-          //console.log(this.searchname.includes(this.doctorsearch.toLowerCase()));
-        window.open('http://localhost:3000/topsearch/'+this.doctorsearch, "_self");
+         
+        window.open('https://consultonline.herokuapp.com/topsearch/'+this.doctorsearch, "_self");
         }
         else
              {
@@ -159,14 +157,14 @@ onSearchSubmit(doctor){
      this.authService.authenticateUser(user).subscribe(data =>{
        if(data.success){
         this.authService.storeUserData(data.token, data.user);
-        //console.log(data.token);
+      
   
         this._flashMessagesService.show('You are now logged in', {cssClass: 'alert-success', timeout:3000});
-        //this.router.navigate(['/dashboard']);
+    
         this.router.navigateByUrl('/user/dashboard');
       }else{
         this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger', timeout:3000});
-        //this.router.navigate(['/login']);
+      
         this.router.navigateByUrl('/');
        }
      });

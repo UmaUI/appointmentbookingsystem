@@ -35,14 +35,14 @@ export class AdminloginComponent implements OnInit {
    this.authService.authenticateAdmin(admin).subscribe(data =>{
      if(data.success){
       this.authService.storeAdminData(data.token, data.admin);
-      //console.log(data.token);
+  
 
       this._flashMessagesService.show('You are now logged in', {cssClass: 'alert-success', timeout:3000});
-      //this.router.navigate(['/dashboard']);
+     
       this.router.navigateByUrl('/admin/admindashboard');
     }else{
       this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger', timeout:3000});
-      //this.router.navigate(['/login']);
+  
       this.router.navigateByUrl('/admin/adminlogin');
      }
    });

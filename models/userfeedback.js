@@ -14,15 +14,12 @@ const feedbackuserSchema = mongoose.Schema({
        },
     userfeedback: {
     type: String
-    //type: Date, default: Date.now
-   },
+     },
    dateoffeedback: {
     type: String
-    //type: Date, default: Date.now
    },
    timeoffeedback: {
     type: String
-    //type: Date, default: Date.now
    },
    currentRate: {
     type: String

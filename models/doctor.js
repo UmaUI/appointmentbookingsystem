@@ -13,7 +13,6 @@ const doctorSchema = mongoose.Schema({
    },
    dateofbirth: {
     type: String
-    //type: Date, default: Date.now
    },
    gender: {
     type: String
@@ -106,22 +105,10 @@ module.exports.resetdoctorRegisterPassword = function(_id, newdoctorRegister, op
              if(err) throw err;
              newdoctorRegister.password = hash;
              newdoctorRegister.set(newdoctorRegister.password, hash);
-   
-             //console.log(newuserRegister.password);
-             //console.log(newuserRegister);
-             //console.log(update.password);
              update.password = newdoctorRegister.password;
-             //console.log(update);
-              //console.log(newuserRegister.password);
              doctorRegister.findOneAndUpdate(query, update, options, callback);
-             
-            
-   
-             //console.log('win');
          });
        });
-        //userRegister.findOneAndUpdate(query, update, options, callback);
-
 }
 
 module.exports.retrieveDoctorRegister = function(email, callback){
@@ -193,21 +180,10 @@ module.exports.updatedoctorRegister = function(_id, newdoctorRegister, options, 
              if(err) throw err;
              newdoctorRegister.password = hash;
              newdoctorRegister.set(newdoctorRegister.password, hash);
-   
-             //console.log(newuserRegister.password);
-             //console.log(newuserRegister);
-             //console.log(update.password);
              update.password = newdoctorRegister.password;
-             //console.log(update);
-              //console.log(newuserRegister.password);
               doctorRegister.findOneAndUpdate(query, update, options, callback);
-             
-            
-   
-             //console.log('win');
          });
        });
-        //userRegister.findOneAndUpdate(query, update, options, callback);
      }
      module.exports.updatedoctoractiveRegister = function(_id, newdoctorRegister, options, callback){
         

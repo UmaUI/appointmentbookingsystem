@@ -51,14 +51,13 @@ export class AdmineditdoctorgenderComponent implements OnInit {
   }
 
   onUpdateSubmit(doctor){
-    //console.log('success');
+ 
    var _doctor = {
     _id:this.id,
      gender: this.gender,
     
      };
-        // Required Fields
-     //console.log(user._id);
+  
      //Update User
      this.authService.updateGenderDoctor(_doctor).subscribe(data =>{
       this._flashMessagesService.show('Your gender has been saved', {cssClass:'alert-success', timeout: 3000}); 

@@ -47,13 +47,11 @@ export class AddcustomerfeedbackComponent implements OnInit {
   ngOnInit() {
     this.doctorid = this.route.snapshot.params['doctorid'];
     this.idSubscription = this.route.params.subscribe((params: any) => {
-      console.log(params.id)
       this.id = params.id;
     });
 
     this.authService.getFeedbackProfile().subscribe(feedbacks =>{
       this.feedbacks = feedbacks; 
-      console.log(this.feedbacks);
 
       for(var i =0;i < feedbacks.length; i++){
         
@@ -83,7 +81,7 @@ export class AddcustomerfeedbackComponent implements OnInit {
   }
 
   onFeedbackSubmit(feedback){
-    //console.log('success');
+
    var _feedback = {
     doctorid: this.doctorid,
     userid:this.id,
@@ -92,8 +90,7 @@ export class AddcustomerfeedbackComponent implements OnInit {
     timeoffeedback: this.currenttime,
     currentRate: this.currentRate
      };
-        // Required Fields
-     //console.log(user._id);
+     
      //Update User
      this.authService.addUserFeedback(_feedback).subscribe(data =>{
       this._flashMessagesService.show('Your feedback has been saved', {cssClass:'alert-success', timeout: 3000}); 

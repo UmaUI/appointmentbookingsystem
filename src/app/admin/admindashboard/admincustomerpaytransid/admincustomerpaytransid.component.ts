@@ -57,9 +57,7 @@ export class AdmincustomerpaytransidComponent implements OnInit {
     paytransid: this.paytransid,
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+
      this.authService.updatePaytransidCustomer(_appointment).subscribe(data =>{
       this._flashMessagesService.show('Your paypal transaction id has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

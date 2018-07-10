@@ -53,14 +53,12 @@ export class AdmincustomerupdatedoctordescriptionComponent implements OnInit {
   }
 
   onupdateDescriptionSubmit(description){
-    //console.log('success');
+
     var _description = {
       _id: this.id,
       doctordescription: this.doctordescription,
        };
-          // Required Fields
-       //console.log(user._id);
-       //Update User
+
        this.authService.updateDoctorDescription(_description).subscribe(data =>{
         this._flashMessagesService.show('Your description has been updated', {cssClass:'alert-success', timeout: 3000}); 
       });  

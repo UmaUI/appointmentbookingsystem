@@ -51,7 +51,7 @@ export class AdmineditcustomeraltermobilenoComponent implements OnInit {
   }
 
   onUpdateSubmit(customer){
-    //console.log('success');
+
    var _customer = {
     _id:this.id,
      altermobileno: this.altermobileno,
@@ -66,9 +66,7 @@ if(!(this.altermobileno == ""))
     return false;
   }
 }
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+
      this.authService.updateAltermobilenoCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your mobile number has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

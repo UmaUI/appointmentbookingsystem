@@ -8,7 +8,7 @@ import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/do";
 //import the map function to be used with the http library
 import "rxjs/add/operator/map";
-const URL = 'http://localhost:3000/file/upload';
+const URL = 'https://consultonline.herokuapp.com/file/upload';
 
 @Component({
   selector: 'app-editprofile',
@@ -106,28 +106,22 @@ upload(user) {
               .post(URL, formData).map((res:Response) => res.json()).subscribe(
              
               //map the success function and alert the response
-               (success) => {
-                //alert(success._body);                
+               (success) => {              
                        alert('Your profile pic have been uploaded .Please click save button to save it');
               },
               (error) => alert(error)
             )
         }
         user.profileimg = d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' +inputEl.files.item(0).name;
-        //this.profileimg = user.profileimg;
         console.log('Photo:'+this.profileimg);
      }
-     //dateFormat(user) {
-      //user.dateofbirth= this.dateofbirth;
 
-     // console.log(this.dateofbirth);
- // }
 
  save(user)
  {
    var d = new Date();
    var n = d.getDate();
-  //var profilePic = this.imageUrl + this.profileimg;
+
   var _user = {
     _id:user._id,
     profileimg:user.profileimg

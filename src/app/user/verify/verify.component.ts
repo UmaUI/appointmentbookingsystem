@@ -29,7 +29,7 @@ export class VerifyComponent implements OnInit {
    this.authService.verifyEmail(user).subscribe(data =>{
      if(data.success){
       this._flashMessagesService.show('You are now verified your email.Log in now.', {cssClass: 'alert-success', timeout:3000});
-      //this.router.navigateByUrl('/user/login');
+    
     }else{
       this._flashMessagesService.show('Please enter valid token.', {cssClass: 'alert-danger', timeout:3000});
       this.router.navigateByUrl('/user/verify');

@@ -8,7 +8,7 @@ import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/do";
 //import the map function to be used with the http library
 import "rxjs/add/operator/map";
-const URL = 'https://doctorconsultonline.herokuapp.com/file/upload';
+const URL = 'https://consultonline.herokuapp.com/file/upload';
 
 @Component({
   selector: 'app-admineditprofile',
@@ -103,27 +103,23 @@ upload(admin) {
              
               //map the success function and alert the response
                (success) => {
-                //alert(success._body);                
+                             
                        alert('Your profile pic have been uploaded .Please click save button to save it');
               },
               (error) => alert(error)
             )
         }
         admin.profileimg = d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' +inputEl.files.item(0).name;
-      //  this.profileimg = admin.profileimg;
+    
         console.log('Photo:'+this.profileimg);
      }
-     //dateFormat(user) {
-      //user.dateofbirth= this.dateofbirth;
-
-     // console.log(this.dateofbirth);
- // }
+  
 
  save(admin)
  {
    var d = new Date();
    var n = d.getDate();
-  //var profilePic = this.imageUrl + this.profileimg;
+
   var _admin = {
     _id:admin._id,
     profileimg:admin.profileimg
@@ -143,7 +139,7 @@ upload(admin) {
 onEditSubmit(admin){
   var d = new Date();
   var n = d.getDate();
- //var profilePic = this.imageUrl + this.profileimg;
+
  var _admin = {
    _id:admin._id,
    profileimg:admin.profileimg,

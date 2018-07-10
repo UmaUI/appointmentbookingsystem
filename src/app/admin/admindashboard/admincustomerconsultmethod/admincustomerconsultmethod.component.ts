@@ -51,15 +51,11 @@ export class AdmincustomerconsultmethodComponent implements OnInit {
   }
 
   onUpdateSubmit(appointment){
-    //console.log('success');
    var _appointment = {
     _id:this.id,
      consultmethod: this.consultmethod,
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
      this.authService.updateConsultmethodCustomer(_appointment).subscribe(data =>{
       this._flashMessagesService.show('Your consulting method has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

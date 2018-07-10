@@ -35,7 +35,6 @@ export class AdmineditdoctorusernameComponent implements OnInit {
 
   ngOnInit() {
     this.idSubscription = this.route.params.subscribe((params: any) => {
-      console.log(params.id)
       this.id = params.id;
     });
   }
@@ -51,14 +50,13 @@ export class AdmineditdoctorusernameComponent implements OnInit {
   }
   
   onUpdateSubmit(doctor){
-    //console.log('success');
+ 
    var _doctor = {
     _id:this.id,
      username: this.username,
     
      };
-        // Required Fields
-     //console.log(user._id);
+       
      //Update User
      this.authService.updateUsernameDoctor(_doctor).subscribe(data =>{
       this._flashMessagesService.show('Your username has been saved', {cssClass:'alert-success', timeout: 3000}); 

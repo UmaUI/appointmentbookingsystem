@@ -35,7 +35,7 @@ export class AdmineditdoctorspecialityComponent implements OnInit {
 
   ngOnInit() {
     this.idSubscription = this.route.params.subscribe((params: any) => {
-      console.log(params.id)
+   
       this.id = params.id;
     });
   }
@@ -51,14 +51,13 @@ export class AdmineditdoctorspecialityComponent implements OnInit {
   }
 
   onUpdateSubmit(doctor){
-    //console.log('success');
+  
    var _doctor = {
     _id:this.id,
     speciality: this.speciality,
     
      };
-        // Required Fields
-     //console.log(user._id);
+
      //Update User
      this.authService.updateSpecialityDoctor(_doctor).subscribe(data =>{
       this._flashMessagesService.show('Your speciality has been saved', {cssClass:'alert-success', timeout: 3000}); 

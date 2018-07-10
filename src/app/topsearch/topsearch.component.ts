@@ -12,9 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './topsearch.component.html',
   styleUrls: ['./topsearch.component.sass']
 })
-export class TopsearchComponent implements OnInit {
-
-   
+export class TopsearchComponent implements OnInit { 
 
   doctorsearch: String;
   doctors: Doctor[];
@@ -46,13 +44,6 @@ export class TopsearchComponent implements OnInit {
 
   ngOnInit() {
 
-   // this.idSubscription = this.route.params.subscribe((params: any) => {
-   //   console.log(params.id);
-   //   this.id =  params.id;
-   // });
-     
-   
-
     this.authService.getDoctorsProfile().subscribe(doctors =>{
       this.doctors = doctors;
       console.log(this.doctors);
@@ -65,14 +56,7 @@ export class TopsearchComponent implements OnInit {
     );
     this.doctorsearch = this.route.snapshot.params['doctorsearch'];
     console.log(this.doctorsearch);
-    //this.searchname = this.doctorsearch;
-    //this.searchspeciality = this.doctorsearch;
-    //this.onSearchSubmit(this.doctor);
   }
-
- // ngOnDestroy() {
- //   this.idSubscription.unsubscribe();
- // }
 
   
 }

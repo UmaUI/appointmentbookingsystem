@@ -49,14 +49,13 @@ export class ResetpasswordComponent implements OnInit {
   }
 
   onResetPasswordSubmit(user){
-    //console.log('success');
+ 
    var _user = {
     _id:this.id,
      password: this.password,
     
      };
-        // Required Fields
-     //console.log(user._id);
+  
      //Update User
      this.authService.resetPassword(_user).subscribe(data =>{
       this._flashMessagesService.show('Your Password have been saved', {cssClass:'alert-success', timeout: 3000}); 

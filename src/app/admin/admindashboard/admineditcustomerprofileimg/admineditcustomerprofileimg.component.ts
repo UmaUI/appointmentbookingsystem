@@ -78,31 +78,25 @@ export class AdmineditcustomerprofileimgComponent implements OnInit {
                 
                  //map the success function and alert the response
                   (success) => {
-                   //alert(success._body);                
+                         
                           alert('Your profile pic have been uploaded .Please click update button to save it');
                  },
                  (error) => alert(error)
                )
            }
            this.profileimg = d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' +inputEl.files.item(0).name;
-         //  this.profileimg = admin.profileimg;
-           console.log('Photo:'+this.profileimg);
+         
         }
-        //dateFormat(user) {
-         //user.dateofbirth= this.dateofbirth;
-   
-        // console.log(this.dateofbirth);
-    // }
+    
 
   onUpdateSubmit(customer){
-    //console.log('success');
+
    var _customer = {
     _id:this.id,
      profileimg: this.profileimg,
     
      };
-        // Required Fields
-     //console.log(user._id);
+    
      if(this.profileimg!=undefined)
      {
      //Update User

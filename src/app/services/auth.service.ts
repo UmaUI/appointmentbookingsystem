@@ -224,7 +224,6 @@ export class authService {
    }
 
    updatePidCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerpidregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -232,7 +231,6 @@ export class authService {
   }
 
   updateNameCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customernameregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -240,7 +238,6 @@ export class authService {
   }
 
   updateNameDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctornameregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -249,7 +246,6 @@ export class authService {
 
 
   updateGenderCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customergenderregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -257,7 +253,6 @@ export class authService {
   }
 
   updateGenderDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctorgenderregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -265,7 +260,6 @@ export class authService {
   }
 
   updateSpecialityDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctorspecialityregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -273,7 +267,6 @@ export class authService {
   }
 
   updateActiveCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customeractiveregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -281,7 +274,6 @@ export class authService {
   }
 
   updateActiveDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctoractiveregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -289,7 +281,6 @@ export class authService {
   }
 
   updateAddressCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customeraddressregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -297,7 +288,6 @@ export class authService {
   }
 
   updateAddressDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctoraddressregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -305,7 +295,6 @@ export class authService {
   }
 
   updateProfileimgCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerprofileimgregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -313,7 +302,6 @@ export class authService {
   }
 
   updateProfileimgDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctorprofileimgregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -321,7 +309,6 @@ export class authService {
   }
 
   updateDateofbirthCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerdateofbirthregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -329,7 +316,6 @@ export class authService {
   }
 
   updateDateofbirthDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctordateofbirthregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -337,7 +323,6 @@ export class authService {
   }
 
   updateUsernameCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerusernameregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -345,7 +330,6 @@ export class authService {
   }
 
   updateUsernameDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctorusernameregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -353,7 +337,6 @@ export class authService {
   }
 
   updateEmailCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customeremailregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -362,7 +345,6 @@ export class authService {
 
 
   updateEmailDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctoremailregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -370,7 +352,6 @@ export class authService {
   }
 
   updateMobilenoCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customermobilenoregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -378,7 +359,6 @@ export class authService {
   }
 
   updateMobilenoDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctormobilenoregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -387,7 +367,6 @@ export class authService {
 
 
   updateAltermobilenoCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customeraltermobilenoregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -395,7 +374,6 @@ export class authService {
   }
 
   updateAltermobilenoDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctoraltermobilenoregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -403,7 +381,6 @@ export class authService {
   }
 
   updateCustomer(customer){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerregister/'+customer._id, JSON.stringify(customer), {headers: headers})
@@ -412,7 +389,6 @@ export class authService {
 
 
    updateAdmin(admin){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/adminregister/'+admin._id, JSON.stringify(admin), {headers: headers})
@@ -420,7 +396,6 @@ export class authService {
   }
 
   updateDoctor(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/doctorregister/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -428,7 +403,6 @@ export class authService {
   }
 
   updateConsultTime(consulttime){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/consulttimeregister/'+consulttime._id, JSON.stringify(consulttime), {headers: headers})
@@ -436,7 +410,6 @@ export class authService {
   }
 
   updateConsultmethodCustomer(appointment){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerconsultmethod/'+appointment._id, JSON.stringify(appointment), {headers: headers})
@@ -444,7 +417,6 @@ export class authService {
   }
 
   updatePaytransidCustomer(appointment){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerpaytransid/'+appointment._id, JSON.stringify(appointment), {headers: headers})
@@ -452,21 +424,18 @@ export class authService {
   }
 
   updateFeedbackCustomer(feedback){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerfeedback/'+feedback._id, JSON.stringify(feedback), {headers: headers})
      .map(res => res.json());
   }
   updateFeedbackRatingCustomer(feedback){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/customerfeedbackrating/'+feedback._id, JSON.stringify(feedback), {headers: headers})
      .map(res => res.json());
   }
   saveDoctorImg(doctor){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/savedoctor/'+doctor._id, JSON.stringify(doctor), {headers: headers})
@@ -474,7 +443,6 @@ export class authService {
   }
 
   saveAdminImg(admin){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/saveadmin/'+admin._id, JSON.stringify(admin), {headers: headers})
@@ -482,7 +450,6 @@ export class authService {
   }
 
   saveUserImg(user){
-    //console.log(admin.profileimg);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
    return this._http.put('/api/saveuser/'+user._id, JSON.stringify(user), {headers: headers})
@@ -534,8 +501,6 @@ export class authService {
     console.log(admin.password);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-   //var username: String;
-   //username = user.username;
    return this._http.put('/api/adminresetpassword/'+admin._id, JSON.stringify(admin), {headers: headers})
      .map(res => res.json());
   }
@@ -544,8 +509,6 @@ export class authService {
     console.log(doctor.password);
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-   //var username: String;
-   //username = user.username;
    return this._http.put('/api/doctorresetpassword/'+doctor._id, JSON.stringify(doctor), {headers: headers})
      .map(res => res.json());
   }

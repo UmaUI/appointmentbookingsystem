@@ -16,7 +16,6 @@ const userSchema = mongoose.Schema({
    },
    dateofbirth: {
     type: String
-    //type: Date, default: Date.now
    },
    gender: {
     type: String
@@ -285,21 +284,12 @@ module.exports.updateuserRegister = function(_id, newuserRegister, options, call
           if(err) throw err;
           newuserRegister.password = hash;
           newuserRegister.set(newuserRegister.password, hash);
-
-          //console.log(newuserRegister.password);
-          //console.log(newuserRegister);
-          //console.log(update.password);
           update.password = newuserRegister.password;
-          //console.log(update);
-           //console.log(newuserRegister.password);
           userRegister.findOneAndUpdate(query, update, options, callback);
-          
-         
-
-          //console.log('win');
+    
       });
     });
-     //userRegister.findOneAndUpdate(query, update, options, callback);
+    
   }
      module.exports.resetuserRegisterPassword = function(_id, newuserRegister, options, callback){
         
@@ -314,21 +304,11 @@ module.exports.updateuserRegister = function(_id, newuserRegister, options, call
                  if(err) throw err;
                  newuserRegister.password = hash;
                  newuserRegister.set(newuserRegister.password, hash);
-       
-                 //console.log(newuserRegister.password);
-                 //console.log(newuserRegister);
-                 //console.log(update.password);
                  update.password = newuserRegister.password;
-                 //console.log(update);
-                  //console.log(newuserRegister.password);
                  userRegister.findOneAndUpdate(query, update, options, callback);
-                 
-                
-       
-                 //console.log('win');
              });
            });
-            //userRegister.findOneAndUpdate(query, update, options, callback);
+         
  
    }
 

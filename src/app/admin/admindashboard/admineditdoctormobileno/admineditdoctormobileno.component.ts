@@ -51,7 +51,7 @@ export class AdmineditdoctormobilenoComponent implements OnInit {
   }
 
   onUpdateSubmit(doctor){
-    //console.log('success');
+  
    var _doctor = {
     _id:this.id,
      mobileno: this.mobileno,
@@ -63,8 +63,7 @@ if(!this.validateService.validateMobileno(this.mobileno)){
   this._flashMessagesService.show('Please use a valid mobileno', {cssClass: 'alert-danger', timeout:3000});
   return false;
 }
-        // Required Fields
-     //console.log(user._id);
+    
      //Update User
      this.authService.updateMobilenoDoctor(_doctor).subscribe(data =>{
       this._flashMessagesService.show('Your mobile number has been saved', {cssClass:'alert-success', timeout: 3000}); 

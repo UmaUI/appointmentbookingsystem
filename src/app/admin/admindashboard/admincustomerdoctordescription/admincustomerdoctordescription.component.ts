@@ -66,7 +66,6 @@ export class AdmincustomerdoctordescriptionComponent implements OnInit {
   }
 
   onDescriptionSubmit(description){
-    //console.log('success');
    var _description = {
     userid: this.userid,
     doctorid:this.doctorid,
@@ -74,9 +73,7 @@ export class AdmincustomerdoctordescriptionComponent implements OnInit {
     dateofdescription: this.today,
     timeofdescription: this.currenttime
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+
      this.authService.addDoctorDescription(_description).subscribe(data =>{
       this._flashMessagesService.show('Your description has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

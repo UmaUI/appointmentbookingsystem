@@ -14,16 +14,13 @@ const descriptiondoctorSchema = mongoose.Schema({
        },
     doctordescription: {
     type: String
-    //type: Date, default: Date.now
    },
    dateofdescription: {
     type: String
-    //type: Date, default: Date.now
    },
    timeofdescription: {
     type: String
-    //type: Date, default: Date.now
-   }
+     }
   
 });
 

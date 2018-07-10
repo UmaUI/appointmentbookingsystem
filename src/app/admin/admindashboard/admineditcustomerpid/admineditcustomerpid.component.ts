@@ -51,14 +51,13 @@ export class AdmineditcustomerpidComponent implements OnInit {
   }
 
   onUpdateSubmit(customer){
-    //console.log('success');
+
    var _customer = {
     _id:this.id,
      pid: this.pid,
     
      };
-        // Required Fields
-     //console.log(user._id);
+     
      //Update User
      this.authService.updatePidCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your PID has been saved', {cssClass:'alert-success', timeout: 3000}); 

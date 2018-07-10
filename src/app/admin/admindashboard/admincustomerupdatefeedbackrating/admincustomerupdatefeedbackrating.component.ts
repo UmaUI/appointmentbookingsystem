@@ -51,15 +51,12 @@ export class AdmincustomerupdatefeedbackratingComponent implements OnInit {
   }
 
   onUpdateSubmit(feedback){
-    //console.log('success');
+
    var _feedback = {
     _id:this.id,
     currentRate: this.currentRate,
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
      this.authService.updateFeedbackRatingCustomer(_feedback).subscribe(data =>{
       this._flashMessagesService.show('Your customer feedback rating has been updated', {cssClass:'alert-success', timeout: 3000}); 
     });  

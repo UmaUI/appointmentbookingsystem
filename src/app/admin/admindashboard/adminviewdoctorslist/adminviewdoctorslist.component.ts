@@ -70,9 +70,7 @@ onSearchSubmit(doctor){
 
   var searchemail = "";
   var doctors = this.doctors;
- //var _customer = {
-   //emailphone: this.emailphone
-   //};
+
    for(var i =0;i < doctors.length; i++){
 
    

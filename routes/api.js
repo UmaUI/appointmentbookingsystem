@@ -17,80 +17,8 @@ const config = require('../config/database');
 var app = express();
 const randomstring = require('randomstring');
 const mailer = require('../routes/mailer');
-//let fs = require('fs-extra');
 'use strict';
-//
-// set the directory for the uploads to the uploaded to
-//var DIR = './uploads/';
-//define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
-//var upload = multer({dest: DIR}).single('photo');
 
-//var storage = multer.diskStorage({
-  
-  //destination: function (req, file, cb) {
-    //let userId = req.body._id;
-    //let path = `src/assets/uploads//${userId}`;
-    //fs.mkdirsSync(path);
-   // cb(null, path);
- // },
- // filename: function (req, file, cb) {
-   // var d = new Date();
-   // var n = d.getDate();
-     // cb(null,  d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' + file.originalname)
-     // console.log('file result' + d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' + file.originalname);
-//}
-//})
-
-//var upload = multer({ storage: storage }).single('photo');
-/* GET home page. */
-//var storage = multer.diskStorage({
- // destination: function (req, file, cb) {
-   // cb(null, './uploads/')
-   // console.log('well done');
-    //console.log(file);
-  //},
-  //filename: function (req, photo,cb) {
-   // if(photo.originalname.match(/\.(jpeg|jpg|png|wav)$/)){
-     // var err = new Error();
-     // err.code = 'filetype';
-    //  return cb(err);
-    //}else{
-   // cb(null, Date.now() + '-'+ photo.originalname );
-   // }
- // }
-//});
-//router.get('/upload', function(req, res, next) {
-// render the index page, and pass data to it.
-  //res.render('index', { title: 'Express' });
-//});
-//router.get('/upload', function(req, res, next) {
-  // render the index page, and pass data to it.
-    //res.render('index', { title: 'Express' });
- // });
-  
-  //our file upload function.
-  //router.post('/upload', function(req, res, next){
-   // console.log("file"+req.file+req.files);
-    //res.send('Successfully uploaded!');
-  //});
-
- //router.post('/upload', function (req, res, next) {
-   //   var path = '';
-      
-     //  upload(req, res, function (err) {
-     //     if (err) {
-            // An error occurred when uploading
-     //      console.log(err);
-     //       return res.status(422).json("an Error occured")
-    //    }  
-         // No error occured.
-    //      path = req.file.path;
-    //      console.log(path);
-   //       return res.json("Upload Completed for "+path); 
-  // });     
-  //})
-
- 
 
 //Register
 router.post('/register', (req, res, next)=>{
@@ -122,7 +50,7 @@ router.post('/register', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to register user'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newuserRegister.secretToken+'</b><br/>On the following page: <a href="http://localhost:3000/user/verify">http://localhost:3000/user/verify</a><br/><br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newuserRegister.secretToken+'</b><br/>On the following page: <a href="https://consultonline.herokuapp.com/user/verify">https://consultonline.herokuapp.com/user/verify</a><br/><br/>Have a pleasant day!';
         
         //send the email
         mailer.sendEmail('admin@consultonline.com', newuserRegister.email , 'Please verify your email', html);
@@ -228,7 +156,7 @@ router.post('/adminregister', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to register admin'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newadminRegister.secretToken+'</b><br/>On the following page: <a href="http://localhost:3000/admin/adminverify">http://localhost:3000/admin/adminverify</a><br/><br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newadminRegister.secretToken+'</b><br/>On the following page: <a href="https://consultonline.herokuapp.com/admin/adminverify">https://consultonline.herokuapp.com/admin/adminverify</a><br/><br/>Have a pleasant day!';
         
         //send the email
         mailer.sendEmail('admin@consultonline.com', newadminRegister.email , 'Please verify your email', html);
@@ -265,7 +193,7 @@ router.post('/doctorregister', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to add doctor details'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/><br/><br/>Create your password <a href="http://localhost:3000/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Please use the following like to login: <br/> <a href="http://localhost:3000/doctor/doctorlogin">http://localhost:3000/doctor/doctorlogin</a> <br/> <br/>  <br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/><br/><br/>Create your password <a href="https://consultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Please use the following like to login: <br/> <a href="https://consultonline.herokuapp.com/doctor/doctorlogin">https://consultonline.herokuapp.com/doctor/doctorlogin</a> <br/> <br/>  <br/>Have a pleasant day!';
         
         //send the email
         mailer.sendEmail('admin@consultonline.com', newdoctorRegister.email , 'Congrats!You can login now', html);
@@ -411,15 +339,6 @@ router.post('/consulttimeregister', (req, res, next)=>{
        sundayslots0400pm: req.body.sundayslots0400pm,
        sundayslots0430pm: req.body.sundayslots0430pm,
        sundayslots0500pm: req.body.sundayslots0500pm,
-
-       //monday: req.body.monday,
-      //monday: req.body.monday,
-      //tuesday: req.body.tuesday,
-      //wednesday: req.body.wednesday,
-      //thursday: req.body.thursday,
-      //friday: req.body.friday,
-      //saturday: req.body.saturday,
-      //sunday: req.body.sunday
   });
 
    //compose an email
@@ -507,7 +426,7 @@ router.post('/retrieve', (req, res, next)=>{
                 return res.json({success: false, msg:'You have not registered with this email'});
             } else {
 
-              const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="http://localhost:3000/user/resetpassword/'+user._id+'">here</a><br/><br/>Have a pleasant day!';
+              const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/user/resetpassword/'+user._id+'">here</a><br/><br/>Have a pleasant day!';
               
               //send the email
               mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
@@ -535,7 +454,7 @@ router.post('/adminretrieve', (req, res, next)=>{
                   return res.json({success: false, msg:'You have not registered with this email'});
               } else {
   
-                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="http://localhost:3000/admin/adminresetpassword/'+admin._id+'">here</a><br/><br/>Have a pleasant day!';
+                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/admin/adminresetpassword/'+admin._id+'">here</a><br/><br/>Have a pleasant day!';
                 
                 //send the email
                 mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
@@ -564,7 +483,7 @@ router.post('/adminretrieve', (req, res, next)=>{
                   return res.json({success: false, msg:'You have not registered with this email'});
               } else {
   
-                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="http://localhost:3000/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Have a pleasant day!';
+                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Have a pleasant day!';
                 
                 //send the email
                 mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
@@ -587,10 +506,8 @@ router.put('/customerpidregister/:_id', (req, res) => {
   let newuserRegister = new userRegister ({
     pid: req.body.pid
 });
- 
-    //var profileimg = req.file;
+
     var _id = req.params._id;
-    //var newuserRegister = req.body;
     userRegister.updatecustomerpidRegister(_id, newuserRegister, {}, function(err, user){
          if(err){
            throw err;
@@ -607,9 +524,7 @@ let newuserRegister = new userRegister ({
   name: req.body.name
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomernameRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -625,10 +540,8 @@ let newuserRegister = new userRegister ({
   let newdoctorRegister = new doctorRegister ({
     name: req.body.name
   });
-  
-    //var profileimg = req.file;
+
     var _id = req.params._id;
-    //var newuserRegister = req.body;
     doctorRegister.updatedoctornameRegister(_id, newdoctorRegister, {}, function(err, doctor){
          if(err){
            throw err;
@@ -645,9 +558,7 @@ let newuserRegister = new userRegister ({
   username: req.body.username
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomerusernameRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -684,9 +595,7 @@ let newuserRegister = new userRegister ({
   gender: req.body.gender
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomergenderRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -703,9 +612,7 @@ let newdoctorRegister = new doctorRegister ({
   gender: req.body.gender
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctorgenderRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -722,9 +629,7 @@ let newdoctorRegister = new doctorRegister ({
   speciality: req.body.speciality
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctorspecialityRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -741,9 +646,7 @@ let newuserRegister = new userRegister ({
   active: req.body.active
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomeractiveRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -760,10 +663,8 @@ let newdoctorRegister = new doctorRegister ({
   active: req.body.active
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
-  doctorRegister.updatedoctoractiveRegister(_id, newdoctorRegister, {}, function(err, doctor){
+    doctorRegister.updatedoctoractiveRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
        }
@@ -782,9 +683,8 @@ let newuserRegister = new userRegister ({
   country: req.body.country
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomeraddressRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -804,9 +704,8 @@ let newdoctorRegister = new doctorRegister ({
   country: req.body.country
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
+
   doctorRegister.updatedoctoraddressRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -824,9 +723,7 @@ let newuserRegister = new userRegister ({
   dateofbirth: req.body.dateofbirth
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomerdateofbirthRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -843,9 +740,7 @@ let newdoctorRegister = new doctorRegister ({
   dateofbirth: req.body.dateofbirth
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctordateofbirthRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -862,9 +757,8 @@ let newuserRegister = new userRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomerprofileimgRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -881,9 +775,7 @@ let newdoctorRegister = new doctorRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctorprofileimgRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -902,9 +794,7 @@ let newuserRegister = new userRegister ({
   email: req.body.email
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomeremailRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -921,9 +811,7 @@ let newdoctorRegister = new doctorRegister ({
   email: req.body.email
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctoremailRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -940,9 +828,7 @@ let newuserRegister = new userRegister ({
   mobileno: req.body.mobileno
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomermobilenoRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -959,9 +845,7 @@ let newdoctorRegister = new doctorRegister ({
   mobileno: req.body.mobileno
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctormobilenoRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -978,9 +862,7 @@ let newuserRegister = new userRegister ({
   altermobileno: req.body.altermobileno
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomeraltermobilenoRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -998,9 +880,8 @@ let newdoctorRegister = new doctorRegister ({
   altermobileno: req.body.altermobileno
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctoraltermobilenoRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
@@ -1018,9 +899,7 @@ let newuserRegister = new userRegister ({
   name: req.body.name
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   userRegister.updatecustomerRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
@@ -1049,10 +928,8 @@ let newuserRegister = new userRegister ({
     pid: req.body.pid
 });
  
-    //var profileimg = req.file;
     var _id = req.params._id;
    console.log(req.body.profileimg);
-    //var newuserRegister = req.body;
     userRegister.updateuserRegister(_id, newuserRegister, {}, function(err, user){
          if(err){
            throw err;
@@ -1082,16 +959,13 @@ let newadminRegister = new adminRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   adminRegister.updateadminRegister(_id, newadminRegister, {}, function(err, admin){
        if(err){
          throw err;
        }
        console.log(admin);
-      // console.log(req.body.profileimg);
        res.json(admin);
  });
 
@@ -1117,16 +991,13 @@ let newdoctorRegister = new doctorRegister ({
   speciality: req.body.speciality
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   doctorRegister.updatedoctorRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
        }
        console.log(doctor);
-      // console.log(req.body.profileimg);
        res.json(doctor);
  });
 
@@ -1271,16 +1142,12 @@ let newconsulttimeRegister = new consulttimeRegister ({
     sundayslots0500pm: req.body.sundayslots0500pm,
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   consulttimeRegister.updateconsulttimeRegister(_id, newconsulttimeRegister, {}, function(err, consulttime){
        if(err){
          throw err;
        }
        console.log(consulttime);
-      // console.log(req.body.profileimg);
        res.json(consulttime);
  });
 
@@ -1293,16 +1160,12 @@ let newdoctorRegister = new doctorRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   doctorRegister.savedoctorRegister(_id, newdoctorRegister, {}, function(err, doctor){
        if(err){
          throw err;
        }
        console.log(doctor);
-      // console.log(req.body.profileimg);
        res.json(doctor);
  });
 
@@ -1315,16 +1178,13 @@ let newadminRegister = new adminRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   adminRegister.saveadminRegister(_id, newadminRegister, {}, function(err, admin){
        if(err){
          throw err;
        }
        console.log(admin);
-      // console.log(req.body.profileimg);
        res.json(admin);
  });
 
@@ -1337,16 +1197,12 @@ let newuserRegister = new userRegister ({
   profileimg: req.body.profileimg
 });
 
-  //var profileimg = req.file;
   var _id = req.params._id;
-// console.log(req.body.profileimg);
-  //var newuserRegister = req.body;
   userRegister.saveuserRegister(_id, newuserRegister, {}, function(err, user){
        if(err){
          throw err;
        }
        console.log(user);
-      // console.log(req.body.profileimg);
        res.json(user);
  });
 
@@ -1374,22 +1230,12 @@ router.put('/profile/:_id', (req, res) => {
 });
 
 var _id = req.params._id;
-//var _pass=req.body.password;
-//console.log(_id);
-//console.log(_pass);
-    //var newuserRegister = req.body;
     userRegister.updateuserRegisterPassword(_id, newuserRegister, {}, function(err, user){
-      //console.log(_id);
-      //newuserRegister._id=_id;
-      //newuserRegister.password=newuserRegister.password;
       if(err){
            throw err;
          }
         
          console.log(user);
-         //console.log(newuserRegister);
-         //user.password = newuserRegister.password;
-        // console.log(user.password);
          res.json(user);
          
     });
@@ -1417,22 +1263,14 @@ router.put('/adminprofile/:_id', (req, res) => {
 });
 
 var _id = req.params._id;
-//var _pass=req.body.password;
-//console.log(_id);
-//console.log(_pass);
-    //var newuserRegister = req.body;
+
     adminRegister.updateadminRegisterPassword(_id, newadminRegister, {}, function(err, admin){
-      //console.log(_id);
-      //newuserRegister._id=_id;
-      //newuserRegister.password=newuserRegister.password;
+  
       if(err){
            throw err;
          }
         
          console.log(admin);
-         //console.log(newuserRegister);
-         //user.password = newuserRegister.password;
-        // console.log(user.password);
          res.json(admin);
          
     });
@@ -1461,22 +1299,13 @@ router.put('/doctorprofile/:_id', (req, res) => {
 });
 
 var _id = req.params._id;
-//var _pass=req.body.password;
-//console.log(_id);
-//console.log(_pass);
-    //var newuserRegister = req.body;
     doctorRegister.updatedoctorRegisterPassword(_id, newdoctorRegister, {}, function(err, doctor){
-      //console.log(_id);
-      //newuserRegister._id=_id;
-      //newuserRegister.password=newuserRegister.password;
+  
       if(err){
            throw err;
          }
         
          console.log(doctor);
-         //console.log(newuserRegister);
-         //user.password = newuserRegister.password;
-        // console.log(user.password);
          res.json(doctor);
          
     });
@@ -1491,22 +1320,13 @@ router.put('/resetpassword/:_id', (req, res) => {
 });
 
 var _id = req.params._id;
-//var _pass=req.body.password;
-//console.log(_id);
-//console.log(_pass);
-    //var newuserRegister = req.body;
+
     userRegister.resetuserRegisterPassword(_id, newuserRegister, {}, function(err, user){
-      //console.log(_id);
-      //newuserRegister._id=_id;
-      //newuserRegister.password=newuserRegister.password;
       if(err){
            throw err;
          }
         
          console.log(user);
-         //console.log(newuserRegister);
-         //user.password = newuserRegister.password;
-        // console.log(user.password);
          res.json(user);
          
     });
@@ -1521,22 +1341,13 @@ var _id = req.params._id;
   });
   
   var _id = req.params._id;
-  //var _pass=req.body.password;
-  //console.log(_id);
-  //console.log(_pass);
-      //var newuserRegister = req.body;
+ 
       adminRegister.resetadminRegisterPassword(_id, newadminRegister, {}, function(err, admin){
-        //console.log(_id);
-        //newuserRegister._id=_id;
-        //newuserRegister.password=newuserRegister.password;
         if(err){
              throw err;
            }
           
            console.log(admin);
-           //console.log(newuserRegister);
-           //user.password = newuserRegister.password;
-          // console.log(user.password);
            res.json(admin);
            
       });
@@ -1551,22 +1362,13 @@ var _id = req.params._id;
   });
   
   var _id = req.params._id;
-  //var _pass=req.body.password;
-  //console.log(_id);
-  //console.log(_pass);
-      //var newuserRegister = req.body;
       doctorRegister.resetdoctorRegisterPassword(_id, newdoctorRegister, {}, function(err, doctor){
-        //console.log(_id);
-        //newuserRegister._id=_id;
-        //newuserRegister.password=newuserRegister.password;
+      
         if(err){
              throw err;
            }
           
            console.log(doctor);
-           //console.log(newuserRegister);
-           //user.password = newuserRegister.password;
-          // console.log(user.password);
            res.json(doctor);
            
       });
@@ -1577,13 +1379,6 @@ var _id = req.params._id;
 router.post('/authenticate', (req, res, next) =>{
     const email = req.body.email;
     const password = req.body.password;
-   // const secretToken = req.body.secretToken;
-   // console.log(secretToken);
-    //userRegister.getuserRegisterByUsername(username, (err, user) =>{
-      // if(err) throw err;
-     //  if(!user){
-     //      return res.json({success: false, msg:'User not found'});
-     //  }
 
        userRegister.getuserRegisterByEmail(email, (err, user) =>{
         if(err) throw err;
@@ -1604,8 +1399,7 @@ router.post('/authenticate', (req, res, next) =>{
               const token = jwt.sign({data: user}, config.secret, {
                   expiresIn: 604800  // 1 week
               });
-             // console.log('Token Value:');
-              //console.log(token);
+         
               res.json({
                   success: true,
                   token: 'JWT '+token,
@@ -1642,13 +1436,6 @@ router.post('/authenticate', (req, res, next) =>{
 router.post('/adminauthenticate', (req, res, next) =>{
   const email = req.body.email;
   const password = req.body.password;
- // const secretToken = req.body.secretToken;
- // console.log(secretToken);
-  //userRegister.getuserRegisterByUsername(username, (err, user) =>{
-    // if(err) throw err;
-   //  if(!user){
-   //      return res.json({success: false, msg:'User not found'});
-   //  }
 
      adminRegister.getadminRegisterByEmail(email, (err, admin) =>{
       if(err) throw err;
@@ -1669,8 +1456,7 @@ router.post('/adminauthenticate', (req, res, next) =>{
             const token = jwt.sign({data: admin}, config.secret, {
                 expiresIn: 604800  // 1 week
             });
-           // console.log('Token Value:');
-            //console.log(token);
+         
             res.json({
                 success: true,
                 token: 'JWT '+token,
@@ -1706,13 +1492,6 @@ router.post('/adminauthenticate', (req, res, next) =>{
 router.post('/doctorauthenticate', (req, res, next) =>{
   const email = req.body.email;
   const password = req.body.password;
- // const secretToken = req.body.secretToken;
- // console.log(secretToken);
-  //userRegister.getuserRegisterByUsername(username, (err, user) =>{
-    // if(err) throw err;
-   //  if(!user){
-   //      return res.json({success: false, msg:'User not found'});
-   //  }
 
      doctorRegister.getdoctorRegisterByEmail(email, (err, doctor) =>{
       if(err) throw err;
@@ -1733,8 +1512,7 @@ router.post('/doctorauthenticate', (req, res, next) =>{
             const token = jwt.sign({data: doctor}, config.secret, {
                 expiresIn: 604800  // 1 week
             });
-           // console.log('Token Value:');
-            //console.log(token);
+     
             res.json({
                 success: true,
                 token: 'JWT '+token,
@@ -1840,9 +1618,8 @@ let newdescriptiondoctorRegister = new  descriptiondoctorRegister ({
   doctordescription: req.body.doctordescription,
 });
 
-  //var profileimg = req.file;
+ 
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   descriptiondoctorRegister.updatedescriptionDoctor(_id, newdescriptiondoctorRegister, {}, function(err, description){
        if(err){
          throw err;
@@ -1853,13 +1630,6 @@ let newdescriptiondoctorRegister = new  descriptiondoctorRegister ({
 });
 
 
-//router.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}));
-
-//router.get('/auth/facebook/callback',
-//passport.authenticate('facebook', { failureRedirect: '/index.html' }),
-//function(req, res) {
-//    res.redirect('#/user');
-//});
 
 //Get All Customers
 router.get('/customers',(req, res, next) => {
@@ -1929,9 +1699,8 @@ let newappointmentuserRegister = new appointmentuserRegister ({
   consultmethod: req.body.consultmethod
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   appointmentuserRegister.updatecustomerConsultmethod(_id, newappointmentuserRegister, {}, function(err, appointment){
        if(err){
          throw err;
@@ -1948,9 +1717,8 @@ let newappointmentuserRegister = new appointmentuserRegister ({
   paytransid: req.body.paytransid
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   appointmentuserRegister.updatecustomerPaytransid(_id, newappointmentuserRegister, {}, function(err, appointment){
        if(err){
          throw err;
@@ -1967,9 +1735,8 @@ let newfeedbackuserRegister = new feedbackuserRegister ({
   userfeedback: req.body.userfeedback
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   feedbackuserRegister.updatefeedbackUser(_id, newfeedbackuserRegister, {}, function(err, feedback){
        if(err){
          throw err;
@@ -1986,9 +1753,8 @@ let newfeedbackuserRegister = new feedbackuserRegister ({
   currentRate: req.body.currentRate
 });
 
-  //var profileimg = req.file;
+
   var _id = req.params._id;
-  //var newuserRegister = req.body;
   feedbackuserRegister.updatefeedbackRatingUser(_id, newfeedbackuserRegister, {}, function(err, feedback){
        if(err){
          throw err;
@@ -1997,16 +1763,6 @@ let newfeedbackuserRegister = new feedbackuserRegister ({
  });
 
 });
-
- // userRegister.retieveCustomersList((err,customers) => {
-   // if(err) throw err;
-   
-    //if(!customers){
-     //   return res.json({success: false, msg:'Customers are not found'});
- // }
-  
- // });
-//});
 
 
 module.exports = router;

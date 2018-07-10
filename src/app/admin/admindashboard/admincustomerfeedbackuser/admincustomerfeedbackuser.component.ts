@@ -74,9 +74,7 @@ export class AdmincustomerfeedbackuserComponent implements OnInit {
     dateoffeedback: this.today,
     timeoffeedback: this.currenttime
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+ 
      this.authService.addUserFeedback(_feedback).subscribe(data =>{
       this._flashMessagesService.show('Your feedback has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

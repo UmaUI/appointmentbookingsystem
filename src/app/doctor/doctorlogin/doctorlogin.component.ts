@@ -33,14 +33,11 @@ export class DoctorloginComponent implements OnInit {
    this.authService.authenticateDoctor(doctor).subscribe(data =>{
      if(data.success){
       this.authService.storeDoctorData(data.token, data.admin);
-      //console.log(data.token);
-
+  
       this._flashMessagesService.show('You are now logged in', {cssClass: 'alert-success', timeout:3000});
-      //this.router.navigate(['/dashboard']);
-      this.router.navigateByUrl('/doctor/doctordashboard');
+           this.router.navigateByUrl('/doctor/doctordashboard');
     }else{
       this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger', timeout:3000});
-      //this.router.navigate(['/login']);
       this.router.navigateByUrl('/doctor/doctorlogin');
      }
    });

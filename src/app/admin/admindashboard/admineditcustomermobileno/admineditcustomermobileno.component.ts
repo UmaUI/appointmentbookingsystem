@@ -63,8 +63,7 @@ if(!this.validateService.validateMobileno(this.mobileno)){
   this._flashMessagesService.show('Please use a valid mobileno', {cssClass: 'alert-danger', timeout:3000});
   return false;
 }
-        // Required Fields
-     //console.log(user._id);
+  
      //Update User
      this.authService.updateMobilenoCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your mobile number has been saved', {cssClass:'alert-success', timeout: 3000}); 

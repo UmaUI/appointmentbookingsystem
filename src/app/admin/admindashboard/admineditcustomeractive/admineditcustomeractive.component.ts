@@ -51,15 +51,13 @@ export class AdmineditcustomeractiveComponent implements OnInit {
   }
 
   onUpdateSubmit(customer){
-    //console.log('success');
+
    var _customer = {
     _id:this.id,
      active: this.active,
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+
      this.authService.updateActiveCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your active has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

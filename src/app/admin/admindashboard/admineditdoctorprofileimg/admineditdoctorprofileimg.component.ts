@@ -86,24 +86,19 @@ export class AdmineditdoctorprofileimgComponent implements OnInit {
                )
            }
            this.profileimg = d.getDate() + '-'+ d.getMonth() + '-'+ d.getFullYear() + '-' +inputEl.files.item(0).name;
-         //  this.profileimg = admin.profileimg;
+        
            console.log('Photo:'+this.profileimg);
         }
-        //dateFormat(user) {
-         //user.dateofbirth= this.dateofbirth;
-   
-        // console.log(this.dateofbirth);
-    // }
+    
 
   onUpdateSubmit(doctor){
-    //console.log('success');
+
    var _doctor = {
     _id:this.id,
      profileimg: this.profileimg,
     
      };
-        // Required Fields
-     //console.log(user._id);
+     
      if(this.profileimg!=undefined)
      {
      //Update User

@@ -79,7 +79,7 @@ onLogoutClick(){
 }
 
 onEditPasswordSubmit(admin){
-  //console.log('success');
+
  var _admin = {
    _id:admin._id,
    profileimg: admin.profileimg,
@@ -96,8 +96,7 @@ onEditPasswordSubmit(admin){
    address1: admin.address1,
    address2: admin.address2
    };
-      // Required Fields
-   console.log(admin._id);
+    
    //Update User
    this.authService.updateAdminPassword(_admin).subscribe(data =>{
     this._flashMessagesService.show('Your Password have been saved', {cssClass:'alert-success', timeout: 3000}); 

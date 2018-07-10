@@ -63,9 +63,7 @@ export class AdmineditcustomeremailComponent implements OnInit {
   this._flashMessagesService.show('Please use a valid email', {cssClass: 'alert-danger', timeout:3000});
   return false;
 }
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+  
      this.authService.updateEmailCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your email has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

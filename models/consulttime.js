@@ -139,27 +139,7 @@ const consulttimeSchema = mongoose.Schema({
   sundayslots0330pm: Boolean,
   sundayslots0400pm: Boolean,
   sundayslots0430pm: Boolean,
-  sundayslots0500pm: Boolean,
- // mondayslots:{
-   //            0800:{
-   //                 available: false
-    //                },
-    //           0830:{
-   //                 available: false
-   //                 }
-             
-   //      },
-  //tuesdayslots:{
-    //            0800:{
-      //               available: false
-      //               },
-      //          0830:{
-      //               available: false
-      //               }
-         
-     //     },
-  
-  
+  sundayslots0500pm: Boolean,  
 });
 
 

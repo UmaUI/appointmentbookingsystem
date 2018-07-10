@@ -354,8 +354,6 @@ export class AdmincustomerbookappointmentComponent implements OnInit {
               funding: {
                         allowed: [ paypal.FUNDING.CREDIT ]
                        },
-              // PayPal Client IDs - replace with your own
-              // Create a PayPal app: https://developer.paypal.com/developer/applications/create
               client: {
                       sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                       production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'
@@ -403,8 +401,7 @@ export class AdmincustomerbookappointmentComponent implements OnInit {
                   funding: {
                             allowed: [ paypal.FUNDING.CREDIT ]
                            },
-                  // PayPal Client IDs - replace with your own
-                  // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+             
                   client: {
                           sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                           production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'
@@ -453,8 +450,7 @@ export class AdmincustomerbookappointmentComponent implements OnInit {
                                 funding: {
                                           allowed: [ paypal.FUNDING.CREDIT ]
                                          },
-                                // PayPal Client IDs - replace with your own
-                                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+                       
                                 client: {
                                         sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                                         production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'

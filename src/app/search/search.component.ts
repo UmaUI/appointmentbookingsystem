@@ -71,12 +71,9 @@ export class SearchComponent implements OnInit {
     this.searchspeciality = this.route.snapshot.params['searchspeciality'];
     console.log(this.searchlocation);
     console.log(this.searchspeciality);
-    //this.onSearchSubmit(this.doctor);
+  
   }
 
- // ngOnDestroy() {
- //   this.idSubscription.unsubscribe();
- // }
 
   
 }

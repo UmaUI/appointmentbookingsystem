@@ -5,16 +5,13 @@ const adminRegister = require('../models/admin');
 const doctorRegister = require('../models/doctor');
 const consulttimeRegister = require('../models/consulttime');
 const config = require('../config/database');
-//const FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function(passport){
     let opts = {};
     opts.jwtFromRequest = extractJwt.fromAuthHeaderWithScheme('jwt') ;
     opts.secretOrKey = config.secret;
     
-   
-
-     passport.use( 'jwt-1', new jwtStrategy(opts, (jwt_payload, done) =>{
+passport.use( 'jwt-1', new jwtStrategy(opts, (jwt_payload, done) =>{
              userRegister.getuserRegisterById(jwt_payload.data._id, (err, user) =>{
                    console.log(user);
                   if(err){

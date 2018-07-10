@@ -355,8 +355,7 @@ export class BookappointmentdoctorComponent implements OnInit {
               funding: {
                         allowed: [ paypal.FUNDING.CREDIT ]
                        },
-              // PayPal Client IDs - replace with your own
-              // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+           
               client: {
                       sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                       production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'
@@ -404,8 +403,7 @@ export class BookappointmentdoctorComponent implements OnInit {
                   funding: {
                             allowed: [ paypal.FUNDING.CREDIT ]
                            },
-                  // PayPal Client IDs - replace with your own
-                  // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+               
                   client: {
                           sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                           production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'
@@ -454,8 +452,7 @@ export class BookappointmentdoctorComponent implements OnInit {
                                 funding: {
                                           allowed: [ paypal.FUNDING.CREDIT ]
                                          },
-                                // PayPal Client IDs - replace with your own
-                                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+                              
                                 client: {
                                         sandbox:'ATJCzzamDZoIzCYEjPgVQz6-eYN82ZLLjVa-pB6xC_NFsUxJ6XQW37Bw7tjO3eHNU5lK6zsF4dG31GSJ',
                                         production: 'EHYZBMqC1v2zElCS5X9DC4KUk3Td8V7b5ABNYH9O4kiFBnacXU6PD40FrHnAB7MgsDlY4YmyTcYMKtbb'
@@ -1643,33 +1640,31 @@ checkValueSatur0500pm(userappointmenttime: any){
 }
 
 checkValueSun0800am(userappointmenttime: any){
-  //sundayslots0800am = this.userappointmenttime;
+ 
    this.userappointmenttime = '08:00 AM';
    this.systemappointmenttime = '0800';
-   
-  //console.log( this.userappointmenttime);
+
 }
 checkValueSun0830am(userappointmenttime: any){
-  //sundayslots0830am = this.userappointmenttime;
   this.userappointmenttime = '08:30 AM';
   this.systemappointmenttime = '0830';
   
 }
 checkValueSun0900am(userappointmenttime: any){
-  //sundayslots0900am = !sundayslots0900am;
+
   this.userappointmenttime = '09:00 AM';
   this.systemappointmenttime = '0900';
  
 }
 checkValueSun0930am(userappointmenttime: any){
-  //sundayslots0930am = !sundayslots0930am;
+ 
   this.userappointmenttime = '09:30 AM';
   this.systemappointmenttime = '0930';
   
   
 }
 checkValueSun1000am(userappointmenttime: any){
-  //sundayslots1000am = !sundayslots1000am;
+
   this.userappointmenttime = '10:00 AM';
   this.systemappointmenttime = '1000';
   
@@ -1781,8 +1776,6 @@ checkValueSun0500pm(userappointmenttime: any){
      }
 
      if(!this.validateService.validateTransid(transval)){
-       console.log(transval.TransactionID);
-       console.log(transval.paytransid);
       this._flashMessagesService.show('Your entered transaction id is not valid', {cssClass: 'alert-danger', timeout:3000});
       return false;
     }

@@ -75,9 +75,7 @@ export class BookappointmentComponent implements OnInit {
       var doctorsearchlocation = "";
       var doctorsearchspeciality = "";
       var doctors = this.doctors;
-     //var _customer = {
-       //emailphone: this.emailphone
-       //};
+    
        for(var i =0;i < doctors.length; i++){
     
        
@@ -99,13 +97,7 @@ export class BookappointmentComponent implements OnInit {
           {
             this._flashMessagesService.show('Doctor details are not available for this location/speciality', {cssClass:'alert-success', timeout: 3000}); 
           }
-       //   else
-      //  {
-      //    if( this.topsearchlocation == this.searchlocation && this.topsearchspeciality == this.searchspeciality )      
-      //    {
-      //    window.open('http://localhost:3000/search/'+this.searchlocation+'/'+this.searchspeciality, "_self");
-      //    }
-     //   }
+  
       }
 
 

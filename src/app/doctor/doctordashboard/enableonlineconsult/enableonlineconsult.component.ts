@@ -3,13 +3,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { authService } from '../../../services/auth.service';
 import { FormGroup, FormControl, Validators,  FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { Monday }  from '../../../../../models/monday';
-//import { Tuesday }  from '../../../../../models/tuesday';
-//import { Wednesday }  from '../../../../../models/wednesday';
-//import { Thursday }  from '../../../../../models/thursday';
-//import { Friday }  from '../../../../../models/friday';
-//import { Saturday }  from '../../../../../models/saturday';
-//import { Sunday }  from '../../../../../models/sunday';
+
 
 @Component({
   selector: 'app-enableonlineconsult',
@@ -157,41 +151,7 @@ export class EnableonlineconsultComponent implements OnInit {
   sundayslots0500pm: Boolean = true;
   consultdoc: String;
   consult: String;
-  //monday: any;
-  //ctmonday: Array<boolean>; 
-  
-  // m2: any; m3: any; m4: any; m5: any; m6: any; m7: any; m8: any; m9: any; m10: any; m11: any; m12: any; m13: any; m14: any; m15: any; m16: any; m17: any; m18: any;
-  //t1: any; t2: any; t3: any; t4: any; t5: any; t6: any; t7: any; t8: any; t9: any; t10: any; t11: any; t12: any; t13: any; t14: any; t15: any; t16: any; t17: any; t18: any;
-  //w1: any; w2: any; w3: any; w4: any; w5: any; w6: any; w7: any; w8: any; w9: any; w10: any; w11: any; w12: any; w13: any; w14: any; w15: any; w16: any; w17: any; w18: any;
-  //th1: any; th2: any; th3: any; th4: any; th5: any; th6: any; th7: any; th8: any; th9: any; th10: any; th11: any; th12: any; th13: any; th14: any; th15: any; th16: any; th17: any; th18: any;
-  //f1: any; f2: any; f3: any; f4: any; f5: any; f6: any; f7: any; f8: any; f9: any; f10: any; f11: any; f12: any; f13: any; f14: any; f15: any; f16: any; f17: any; f18: any;
-  //s1: any; s2: any; s3: any; s4: any; s5: any; s6: any; s7: any; s8: any; s9: any; s10: any; s11: any; s12: any; s13: any; s14: any; s15: any; s16: any; s17: any; s18: any;
-  //su1: any; su2: any; su3: any; su4: any; su5: any; su6: any; su7: any; su8: any; su9: any; su10: any; su11: any; su12: any; su13: any; su14: any; su15: any; su16: any; su17: any; su18: any;
-  //monday:Monday[];
-  //tuesday:Tuesday[];
-  //wednesday:Wednesday[];
-  //thursday:Thursday[];
-  //friday:Friday[];
-  //saturday:Saturday[];
-  //sunday:Sunday[];
-  //mondays: any[] = [];
-  //monday: Array<{m1: Boolean, m2: Boolean, m3: Boolean, m4: Boolean, m5: Boolean, m6: Boolean, m7: Boolean, m8: Boolean, m9: Boolean, m10: Boolean, m11: Boolean, m12: Boolean, m13: Boolean, m14: Boolean, m15: Boolean, m16: Boolean, m17: Boolean, m18: Boolean}>;
-  //tuesday: Array<{t1: Boolean, t2: Boolean, t3: Boolean, t4: Boolean, t5: Boolean, t6: Boolean, t7: Boolean, t8: Boolean, t9: Boolean, t10: Boolean, t11: Boolean, t12: Boolean, t13: Boolean, t14: Boolean, t15: Boolean, t16: Boolean, t17: Boolean, t18: Boolean}>;
-  //wednesday: Array<{w1: Boolean, w2: Boolean, w3: Boolean, w4: Boolean, w5: Boolean, w6: Boolean, w7: Boolean, w8: Boolean, w9: Boolean, w10: Boolean, w11: Boolean, w12: Boolean, w13: Boolean, w14: Boolean, w15: Boolean, w16: Boolean, w17: Boolean, w18: Boolean}>;
-  //thursday: Array<{th1: Boolean, th2: Boolean, th3: Boolean, th4: Boolean, th5: Boolean, th6: Boolean, th7: Boolean, th8: Boolean, th9: Boolean, th10: Boolean, th11: Boolean, th12: Boolean, th13: Boolean, th14: Boolean, th15: Boolean, th16: Boolean, th17: Boolean, th18: Boolean}>;
-  //friday: Array<{f1: Boolean, f2: Boolean, f3: Boolean, f4: Boolean, f5: Boolean, f6: Boolean, f7: Boolean, m8: Boolean, m9: Boolean, m10: Boolean, m11: Boolean, m12: Boolean, m13: Boolean, m14: Boolean, m15: Boolean, m16: Boolean, m17: Boolean, m18: Boolean}>;
-  //saturday: Array<{s1: Boolean, s2: Boolean, s3: Boolean, s4: Boolean, s5: Boolean, s6: Boolean, s7: Boolean, s8: Boolean, s9: Boolean, s10: Boolean, s11: Boolean, s12: Boolean, s13: Boolean, s14: Boolean, s15: Boolean, s16: Boolean, s17: Boolean, s18: Boolean}>;
-  //sunday: Array<{su1: Boolean, su2: Boolean, su3: Boolean, su4: Boolean, su5: Boolean, su6: Boolean, su7: Boolean, su8: Boolean, su9: Boolean, su10: Boolean, su11: Boolean, su12: Boolean, su13: Boolean, su14: Boolean, su15: Boolean, su16: Boolean, su17: Boolean, su18: Boolean}>;
-  
-  
-  
-  //monday: any[] = [];
-  //tuesday: any[] = [];
-  //wednesday: any[] = [];
-  //thursday: any[] = [];
-  //friday: any[] = [];
-  //saturday: any[] = [];
-  //sunday: any[] = [];
+
 
   constructor(
     fb: FormBuilder,
@@ -201,7 +161,7 @@ export class EnableonlineconsultComponent implements OnInit {
   ) { 
 
     this.consulttimeForm = fb.group({
-     // mondays: fb.array([ this.createMonday() ])
+  
      _id: ['', Validators.required],
      mondayslots0800am: ['', Validators.required],
      mondayslots0830am: ['', Validators.required],
@@ -336,27 +296,12 @@ export class EnableonlineconsultComponent implements OnInit {
      sundayslots0400pm: ['', Validators.required],
      sundayslots0430pm: ['', Validators.required],
      sundayslots0500pm: ['', Validators.required],
-     // monday: [],
-    // tuesday: [],
-    // wednesday: [],
-    // thursday: [],
-    // friday: [],
-    // saturday: [],
-    // sunday: [],
+
     });
   }
 
   ngOnInit() {
   
-    //this.authService.getDoctorConsultTimeProfile().subscribe(profile =>{
-      //this.ctdoctor = profile.user;
-     // console.log(this.ctdoctor);
-     // },
-    // err =>{
-    //   console.log(err);
-    //   return false;
-   //  }
-   // );
 
    this.authService.getDoctorProfile().subscribe(profile =>{
       this.doctor = profile.user;
@@ -389,98 +334,9 @@ export class EnableonlineconsultComponent implements OnInit {
     return false;
   }
   
-  //createMonday(): FormGroup {
-  //  return fb.  ({
-  //    m1: '',
-  //    m2: '',
-  //    m3: ''
-  //  });
- // }
- 
-   
-    
-    //consulttime.monday = this.consulttimeForm.get('monday') as FormArray;
-    //consulttime.tuesday = this.consulttimeForm.get('tuesday') as FormArray;
-    //consulttime.wednesday = this.consulttimeForm.get('wednesday') as FormArray;
-    //consulttime.thursday = this.consulttimeForm.get('thursday') as FormArray;
-    //consulttime.friday = this.consulttimeForm.get('friday') as FormArray;
-    //consulttime.saturday = this.consulttimeForm.get('saturday') as FormArray;
-    //consulttime.sunday = this.consulttimeForm.get('sunday') as FormArray;
-    //this.mondays = this.consulttimeForm.get('mondays') as FormArray;
-    //this.mondays.push(this.createItem());
-    //var monday = [Monday[0].m1,Monday[0].m2,,"4"] 
-
- 
-
-  // Register User
-  // this.authService.consulttimeDoctor(consulttime).subscribe(data =>{
-     //console.log(user.profileimg);
-    // if(data.success){
-     // this._flashMessagesService.show('Your consultation time details were stored.', {cssClass: 'alert-success', timeout:3000});
-      //this.router.navigate(['/login']);
-      //this.router.navigateByUrl('/user/login');
-      //this.NgZone.run(() => this.router.navigateByUrl('/user/login'));
-    //}else{
-     // this._flashMessagesService.show('Error in storing your consulttion time.', {cssClass: 'alert-danger', timeout:3000});
-      //this.router.navigate(['/signup']);
-     // this.router.navigateByUrl('/user/signup')
-    // }
-   //});
-  //}
- // signInWithGoogle(): void {
-//   this.AuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-//checkValue(mondayslots0800am: any){
-  //mondayslots0800am = !mondayslots0800am;
-  
-
-  //console.log(mondayslots0800am);
-//}
 
   onSignupConsultSubmit(consulttime){
 
-     
-    //var m1= false;
-   // var ctmonday =new Array(18);
-  
-    //ctmonday[1]=false;
-    //ctmonday[2]=false;
-    //ctmonday[3]=false;
-    //ctmonday[4]=false;
-    //ctmonday[5]=false;
-    //ctmonday[6]=false;
-    //ctmonday[7]=false;
-    //ctmonday[8]=false;
-    //ctmonday[9]=false;
-    //ctmonday[10]=false;
-    //ctmonday[11]=false;
-    //ctmonday[12]=false;
-    //ctmonday[13]=false;
-    //ctmonday[14]=false;
-    //ctmonday[15]=false;
-    //ctmonday[16]=false;
-    //ctmonday[17]=false;
-
-    //const monday = {
-    //  m1: false, m2: false, m3: false, m4: false, m5: false, m6: false, m7: false, m8: false, m9: false, m10: false, m11: false, m12: false, m13: false, m14: false, m15: false, m16: false, m17: false, m18: false
-    //  };
-    //const tuesday = {
-   //   t1: false, t2: false, t3: false, t4: false, t5: false, t6: false, t7: false, t8: false, t9: false, t10: false, t11: false, t12: false, t13: false, t14: false, t15: false, t16: false, t17: false, t18: false
-   //   };
-   // const wednesday = {
-    //  w1: false, w2: false, w3: false, w4: false, w5: false, w6: false, w7: false, w8: false, w9: false, w10: false, w11: false, w12: false, w13: false, w14: false, w15: false, w16: false, w17: false, w18: false
-    //  };
-    //const thursday = {
-    //  th1: false, th2: false, th3: false, th4: false, th5: false, th6: false, th7: false, th8: false, th9: false, th10: false, th11: false, th12: false, th13: false, th14: false, th15: false, th16: false, th17: false, th18: false
-     // };
-    //const friday = {
-     // f1: false, f2: false, f3: false, f4: false, f5: false, f6: false, f7: false, f8: false, f9: false, f10: false, f11: false, f12: false, f13: false, f14: false, f15: false, f16: false, f17: false, f18: false
-     // };
-    //const saturday = {
-     // sa1: false, sa2: false, sa3: false, sa4: false, sa5: false, sa6: false, sa7: false, sa8: false, sa9: false, sa10: false, sa11: false, sa12: false, sa13: false, sa14: false, sa15: false, sa16: false, sa17: false, sa18: false
-     // };
-    //const sunday = {
-    //  s1: false, s2: false, s3: false, s4: false, s5: false, s6: false, s7: false, s8: false, s9: false, s10: false, s11: false, s12: false, s13: false, s14: false, s15: false, s16: false, s17: false, s18: false
-    //  };
 
     var _ctdoctor = {
       _id : consulttime._id,
@@ -617,21 +473,13 @@ export class EnableonlineconsultComponent implements OnInit {
       sundayslots0400pm: this.sundayslots0400pm,
       sundayslots0430pm: this.sundayslots0430pm,
       sundayslots0500pm: this.sundayslots0500pm,
-      // m1 : consulttime.m1,
-      //monday : consulttime.monday,
-      //monday: monday,
-      //tuesday: tuesday,
-      //wednesday: wednesday,
-      //thursday: thursday,
-      //friday: friday,
-      //saturday: saturday,
-      //sunday: sunday
+  
     }
 
     //Update User
    this.authService.signupConsultTime(_ctdoctor).subscribe(data =>{
     console.log(_ctdoctor);
-   // console.log(consulttime.mondayslots0800am);
+ 
    
    this._flashMessagesService.show('Your online consultation service has been enabled.', {cssClass:'alert-success', timeout: 3000}); 
  });  

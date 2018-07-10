@@ -27,7 +27,7 @@ export class RetrieveComponent implements OnInit {
    this.authService.retrieveUserPass(user).subscribe(data =>{
      if(data.success){
       this._flashMessagesService.show('Check your email for password', {cssClass: 'alert-success', timeout:3000});
-      //this.router.navigateByUrl('/user/login');
+     
     }else{
       this._flashMessagesService.show('Please enter Registered Email', {cssClass: 'alert-danger', timeout:3000});
       this.router.navigateByUrl('/user/retrieve');

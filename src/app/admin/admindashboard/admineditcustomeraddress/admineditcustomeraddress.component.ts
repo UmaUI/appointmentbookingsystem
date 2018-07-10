@@ -57,7 +57,7 @@ export class AdmineditcustomeraddressComponent implements OnInit {
   }
 
   onUpdateSubmit(customer){
-    //console.log('success');
+   
    var _customer = {
     _id:this.id,
      address1: this.address1,
@@ -66,9 +66,7 @@ export class AdmineditcustomeraddressComponent implements OnInit {
      country: this.country
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+ 
      this.authService.updateAddressCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your address has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  

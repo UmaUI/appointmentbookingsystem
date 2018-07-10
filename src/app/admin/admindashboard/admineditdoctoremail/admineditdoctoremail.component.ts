@@ -35,7 +35,6 @@ export class AdmineditdoctoremailComponent implements OnInit {
 
   ngOnInit() {
     this.idSubscription = this.route.params.subscribe((params: any) => {
-      console.log(params.id)
       this.id = params.id;
     });
   }
@@ -63,8 +62,7 @@ export class AdmineditdoctoremailComponent implements OnInit {
   this._flashMessagesService.show('Please use a valid email', {cssClass: 'alert-danger', timeout:3000});
   return false;
 }
-        // Required Fields
-     //console.log(user._id);
+
      //Update User
      this.authService.updateEmailDoctor(_doctor).subscribe(data =>{
       this._flashMessagesService.show('Your email has been saved', {cssClass:'alert-success', timeout: 3000}); 

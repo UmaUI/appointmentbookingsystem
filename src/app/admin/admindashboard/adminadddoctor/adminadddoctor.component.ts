@@ -108,19 +108,13 @@ export class AdminadddoctorComponent implements OnInit {
       console.log(doctor.profileimg);
       if(data.success){
        this._flashMessagesService.show('You are now registered doctor details.', {cssClass: 'alert-success', timeout:3000});
-       //this.router.navigate(['/login']);
-       //this.router.navigateByUrl('/user/login');
-       //this.NgZone.run(() => this.router.navigateByUrl('/user/login'));
+   
      }else{
        this._flashMessagesService.show('username/email already exists.', {cssClass: 'alert-danger', timeout:3000});
-       //this.router.navigate(['/signup']);
-       //this.router.navigateByUrl('/admin/adminsignup')
+    
       }
     });
    }
-  // signInWithGoogle(): void {
- //   this.AuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-//  }
 
  
 }

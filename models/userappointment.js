@@ -14,11 +14,9 @@ const appointmentuserSchema = mongoose.Schema({
        },
     appointmentdate: {
     type: String
-    //type: Date, default: Date.now
    },
    systemappointmentdate: {
     type: Date
-    //type: Date, default: Date.now
    },
    appointmenttime: {
     type: String

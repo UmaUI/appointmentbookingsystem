@@ -8,7 +8,7 @@ import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/do";
 //import the map function to be used with the http library
 import "rxjs/add/operator/map";
-const URL = 'http://localhost:3000/file/upload';
+const URL = 'http://ec2-54-164-155-8.compute-1.amazonaws.com:3000/file/upload';
 
 @Component({
   selector: 'app-doctoreditprofile',
@@ -106,7 +106,7 @@ upload(doctor) {
              
               //map the success function and alert the response
                (success) => {
-                //alert(success._body);                
+                            
                        alert('Your profile pic have been uploaded .Please click save button to save it');
               },
               (error) => alert(error)
@@ -116,18 +116,14 @@ upload(doctor) {
         this.profileimg = doctor.profileimg;
         console.log('Photo:'+doctor.profileimg);
      }
-     //dateFormat(user) {
-      //user.dateofbirth= this.dateofbirth;
 
-     // console.log(this.dateofbirth);
- // }
     
 
 save(doctor)
 {
   var d = new Date();
   var n = d.getDate();
- //var profilePic = this.imageUrl + this.profileimg;
+
  var _doctor = {
    _id:doctor._id,
    profileimg:doctor.profileimg
@@ -148,7 +144,7 @@ onEditSubmit(doctor){
  
   var d = new Date();
   var n = d.getDate();
- //var profilePic = this.imageUrl + this.profileimg;
+
  var _doctor = {
    _id:doctor._id,
    profileimg:doctor.profileimg,

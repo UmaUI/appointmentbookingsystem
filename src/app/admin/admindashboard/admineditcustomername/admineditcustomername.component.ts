@@ -57,8 +57,7 @@ export class AdmineditcustomernameComponent implements OnInit {
      name: this.name,
     
      };
-        // Required Fields
-     //console.log(user._id);
+ 
      //Update User
      this.authService.updateNameCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your name has been saved', {cssClass:'alert-success', timeout: 3000}); 

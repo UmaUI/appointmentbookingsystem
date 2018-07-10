@@ -51,15 +51,13 @@ export class AdmineditcustomerdateofbirthComponent implements OnInit {
   }
 
   onUpdateSubmit(customer){
-    //console.log('success');
+
    var _customer = {
     _id:this.id,
      dateofbirth: this.dateofbirth,
     
      };
-        // Required Fields
-     //console.log(user._id);
-     //Update User
+   
      this.authService.updateDateofbirthCustomer(_customer).subscribe(data =>{
       this._flashMessagesService.show('Your Date of birth has been saved', {cssClass:'alert-success', timeout: 3000}); 
     });  
