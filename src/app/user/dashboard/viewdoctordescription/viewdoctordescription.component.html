@@ -20,13 +20,13 @@
     <br>
     <br>
     <div class="container ">
-        <div class="container" style="width: 37%" >
+        <div class="container" style="width: 100%" >
       
         <br><br>
-        <h3 align="center" class="font-weight-bold text-white">Doctor's Descriptions for you</h3>
+        <h3 class="hint-text">&nbsp; &nbsp;Doctor's Descriptions for you</h3>
         
           <br>
-          <table class="table" align="center" style="width:400px">
+          <table class="table" align="center" style="width:700px">
             <thead>
               <tr>  
              <br>
@@ -37,8 +37,8 @@
                     
                 <tr *ngFor ="let description of descriptions | paginate: { itemsPerPage: 10, currentPage: p }">
                   <div *ngIf="this.id == description.userid  &&  this.doctorid == description.doctorid ">
-                    <h6>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Description:</b>&nbsp;{{description.doctordescription}}<br>
-                 <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.timeofdescription}}<br></h6>
+                    <h5>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Description:</b>&nbsp;{{description.doctordescription}}<br>
+                 <br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.dateofdescription.slice(0,10)}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Date:</b>&nbsp;{{description.timeofdescription}}<br></h5>
                  
                  
                  <p>-----------------------------------------------------------------------------------</p>
