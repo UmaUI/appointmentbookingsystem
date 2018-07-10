@@ -8,7 +8,7 @@ import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/do";
 //import the map function to be used with the http library
 import "rxjs/add/operator/map";
-const URL = 'https://consultonline.herokuapp.com/file/upload';
+const URL = 'https://doctorconsultonline.herokuapp.com/file/upload';
 
 @Component({
   selector: 'app-admineditprofile',
