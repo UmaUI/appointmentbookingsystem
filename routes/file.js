@@ -52,11 +52,7 @@ var upload = multer({ storage: storage }).single('photo');
     //res.render('index', { title: 'Express' });
  // });
   
-  //our file upload function.
-  //router.post('/upload', function(req, res, next){
-   // console.log("file"+req.file+req.files);
-    //res.send('Successfully uploaded!');
-  //});
+
 
  router.post('/upload', function (req, res, next) {
       var path = '';
