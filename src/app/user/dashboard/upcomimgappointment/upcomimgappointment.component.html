@@ -39,9 +39,9 @@
               
           <tr *ngFor ="let appointment of appointments | paginate: { itemsPerPage: 10, currentPage: p }">
             <div *ngIf="user._id == appointment.userid  && this.today > appointment.systemappointmentdate.slice(0,10) || (this.today == appointment.systemappointmentdate.slice(0,10) && this.currenttimevalue > appointment.systemappointmenttime )">
-              <br> <div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == appointment.doctorid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Doctor Name:&nbsp;<a href="https://doctorconsultonline.herokuapp.com/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></div></div></h4>
-           <p>-----------------------------------------------------------------------------------</p>
-           
+             <h4>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Date:&nbsp;{{appointment.appointmentdate.slice(0,10)}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Appointment Time:&nbsp;{{appointment.appointmenttime}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Consult Method:&nbsp;{{appointment.consultmethod}}<br>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Paypal Transaction ID:&nbsp;{{appointment.paytransid}}
+           <br> <div *ngFor ="let doctor of doctors"><div *ngIf="doctor._id == appointment.doctorid">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Doctor Name:&nbsp;<a href="https://doctorconsultonline.herokuapp.com/user/dashboard/doctorprofile/{{doctor._id}}" target="_blank">{{doctor.name}}</a></div></div></h4>
+         <p>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;--------------------------------------------------------------------------------</p>
           <br>
            </div>
           </tr>
