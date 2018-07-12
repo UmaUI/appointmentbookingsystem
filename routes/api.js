@@ -50,10 +50,10 @@ router.post('/register', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to register user'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newuserRegister.secretToken+'</b><br/>On the following page: <a href="https://consultonline.herokuapp.com/user/verify">https://consultonline.herokuapp.com/user/verify</a><br/><br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newuserRegister.secretToken+'</b><br/>On the following page: <a href="https://doctorconsultonline.herokuapp.com/user/verify">https://doctorconsultonline.herokuapp.com/user/verify</a><br/><br/>Have a pleasant day!';
         
         //send the email
-        mailer.sendEmail('admin@consultonline.com', newuserRegister.email , 'Please verify your email', html);
+        mailer.sendEmail('admin@doctorconsultonline.com', newuserRegister.email , 'Please verify your email', html);
            res.json({success: true, msg:'User Registered'});
        }
   });
@@ -156,10 +156,10 @@ router.post('/adminregister', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to register admin'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newadminRegister.secretToken+'</b><br/>On the following page: <a href="https://consultonline.herokuapp.com/admin/adminverify">https://consultonline.herokuapp.com/admin/adminverify</a><br/><br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/> Please verify your email by typing the following token: <br/> Token:<b>'+newadminRegister.secretToken+'</b><br/>On the following page: <a href="https://doctorconsultonline.herokuapp.com/admin/adminverify">https://doctorconsultonline.herokuapp.com/admin/adminverify</a><br/><br/>Have a pleasant day!';
         
         //send the email
-        mailer.sendEmail('admin@consultonline.com', newadminRegister.email , 'Please verify your email', html);
+        mailer.sendEmail('admin@doctorconsultonline.com', newadminRegister.email , 'Please verify your email', html);
            res.json({success: true, msg:'Admin Registered'});
        }
   });
@@ -193,10 +193,10 @@ router.post('/doctorregister', (req, res, next)=>{
        if(err){
            res.json({success: false, msg:'Failed to add doctor details'});
        } else {
-        const html = 'Hi there, <br/>Thank you for registering! <br/><br/><br/><br/>Create your password <a href="https://consultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Please use the following like to login: <br/> <a href="https://consultonline.herokuapp.com/doctor/doctorlogin">https://consultonline.herokuapp.com/doctor/doctorlogin</a> <br/> <br/>  <br/>Have a pleasant day!';
+        const html = 'Hi there, <br/>Thank you for registering! <br/><br/><br/><br/>Create your password <a href="https://doctorconsultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Please use the following like to login: <br/> <a href="https://doctorconsultonline.herokuapp.com/doctor/doctorlogin">https://doctorconsultonline.herokuapp.com/doctor/doctorlogin</a> <br/> <br/>  <br/>Have a pleasant day!';
         
         //send the email
-        mailer.sendEmail('admin@consultonline.com', newdoctorRegister.email , 'Congrats!You can login now', html);
+        mailer.sendEmail('admin@doctorconsultonline.com', newdoctorRegister.email , 'Congrats!You can login now', html);
            res.json({success: true, msg:'Doctor Details Registered'});
        }
   });
@@ -426,10 +426,10 @@ router.post('/retrieve', (req, res, next)=>{
                 return res.json({success: false, msg:'You have not registered with this email'});
             } else {
 
-              const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/user/resetpassword/'+user._id+'">here</a><br/><br/>Have a pleasant day!';
+              const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://doctorconsultonline.herokuapp.com/user/resetpassword/'+user._id+'">here</a><br/><br/>Have a pleasant day!';
               
               //send the email
-              mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
+              mailer.sendEmail('admin@doctorconsultonline.com', secretEmail , 'Reset Password - Online Consult', html);
               res.json({
                 success: true,
                 user: {
@@ -454,10 +454,10 @@ router.post('/adminretrieve', (req, res, next)=>{
                   return res.json({success: false, msg:'You have not registered with this email'});
               } else {
   
-                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/admin/adminresetpassword/'+admin._id+'">here</a><br/><br/>Have a pleasant day!';
+                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://doctorconsultonline.herokuapp.com/admin/adminresetpassword/'+admin._id+'">here</a><br/><br/>Have a pleasant day!';
                 
                 //send the email
-                mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
+                mailer.sendEmail('admin@doctorconsultonline.com', secretEmail , 'Reset Password - Online Consult', html);
                 res.json({
                   success: true,
                   admin: {
@@ -483,10 +483,10 @@ router.post('/adminretrieve', (req, res, next)=>{
                   return res.json({success: false, msg:'You have not registered with this email'});
               } else {
   
-                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://consultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Have a pleasant day!';
+                const html = 'Hi there, <br/>Thank you for contacting us! <br/><br/>Reset your password <a href="https://doctorconsultonline.herokuapp.com/doctor/doctorresetpassword/'+doctor._id+'">here</a><br/><br/>Have a pleasant day!';
                 
                 //send the email
-                mailer.sendEmail('admin@consultonline.com', secretEmail , 'Reset Password - Online Consult', html);
+                mailer.sendEmail('admin@doctorconsultonline.com', secretEmail , 'Reset Password - Online Consult', html);
                 res.json({
                   success: true,
                   doctor: {
